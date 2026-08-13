@@ -12,3 +12,40 @@
 // document.body.appendChild(button);
 
 console.log("Pahulmeet Singh")
+
+// --------------
+
+var a=20
+console.log(a)
+
+a=30
+console.log(a)// update
+
+
+var a=40
+console.log(a)// redeclare
+
+// -------------
+
+let a=20
+console.log(a)
+
+a=30
+console.log(a)// update
+
+// let a=40
+// console.log(a)// redeclare not allowed
+
+// -------------
+
+const a=20
+console.log(a)
+
+// a=30
+// console.log(a)// update not allowed
+
+// const a=40
+// console.log(a)// redeclare not allowed
+
+// -------------
+
