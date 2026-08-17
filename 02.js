@@ -32,7 +32,7 @@ console.log(multiply4())
 //the reason that we need brackets when there is no argument is that the arrow function syntax requires parentheses to indicate the absence of parameters. Without parentheses, the function would be ambiguous and could lead to syntax errors.
 // and the reson we need brackets for more than one argument is that the arrow function syntax requires parentheses to group multiple parameters together. Without parentheses, the function would be ambiguous and could lead to syntax errors.
 
-// ------------------------------------------------------------
+// -----------------------------------------------------------------------
 
 // ARRAYS- 
 
@@ -67,7 +67,7 @@ arr.forEach (mark=>console.log(mark))
 
 
  
-// ------------------------------------------------------------
+// -----------------------------------------------------------------------
 
 // MAP
 
@@ -82,8 +82,43 @@ let result=fruits.map((fruits,index,array)=>{
     console.log("Fruit:",fruits)
     console.log("Index:",index)
     console.log("Array:",array)
-    return fruits
 })
-console.log(result)
+
 
 //example2: lowercase names array and use map to make it uppercase
+
+let students=["john","jane","alice","bob"]
+let upperCaseStudents=students.map(student=>{
+    return student.toUpperCase()
+})
+console.log(upperCaseStudents)
+
+
+//example3: using map to create an array of objects from an array of strings
+
+let names=["john","jane","alice","bob"]
+let nameObjects=names.map(name=>{
+    return {name:name}
+})
+console.log(nameObjects)
+
+
+//example4: using map to create an array of lengths from an array of strings
+
+let words=["hello","world","javascript","map"]
+let wordLengths=words.map(word=>{
+    return word.length
+})
+console.log(wordLengths)
+
+//example5: using map to create an array of objects with name and age properties from an array of objects
+let students1=[
+    {name:"john",age:20},
+    {name:"jane",age:22},
+    {name:"alice",age:21},
+    {name:"bob",age:23}
+]
+let studentNames=students1.map(student=>{
+    return student.name
+})
+console.log(studentNames)
