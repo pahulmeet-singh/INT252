@@ -34,3 +34,7 @@ lec 2 - 17 august
 ## Map
 
 - Map() cretes a new array by applying a funtion to every element of an existing array.
+
+## Filter
+
+- Filter() creates a new array with all elements that pass the test implemented by the provided function.

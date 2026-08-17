@@ -122,3 +122,44 @@ let studentNames=students1.map(student=>{
     return student.name
 })
 console.log(studentNames)
+
+// -----------------------------------------------------------------------
+
+// FILTER
+
+let marks=[10,20,30,40,50]
+let passingMarks=marks.filter(mark=>{
+    return mark>=30
+})
+console.log(passingMarks)
+
+//example2: using filter to create an array of even numbers from an array of numbers
+
+let numbers=[1,2,3,4,5,6,7,8,9,10]
+let evenNumbers=numbers.filter(number=>{
+    return number%2===0
+})
+console.log(evenNumbers)
+
+//example3: using filter to create an array of objects with age greater than 21 from an array of objects
+
+let students2=[
+    {name:"john",age:20},
+    {name:"jane",age:22},
+    {name:"alice",age:21},
+    {name:"bob",age:23}
+]
+let adultStudents=students2.filter(student=>{
+    return student.age>21
+})
+console.log(adultStudents)
+
+//example4: using filter to create an array of strings that start with a specific letter from an array of strings
+
+let fruits1=["apple","banana","mango","avocado","grape"]
+let aFruits=fruits1.filter(fruit=>{
+    return fruit.startsWith("a")
+})
+console.log(aFruits)
+
+// -----------------------------------------------------------------------
