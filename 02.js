@@ -1,3 +1,4 @@
+// /**
 // 17 aug-lec 2
 // difference between functions and arrow functions
 let a,b
@@ -64,7 +65,25 @@ arr.forEach((mark,index)=>console.log(mark,index))
 // for each loop with arrow function and single parameter
 arr.forEach (mark=>console.log(mark))
 
+
+ 
 // ------------------------------------------------------------
 
 // MAP
 
+let newMarks=arr.map(mark=>{
+    return mark+5;
+})
+console.log(newMarks)
+
+//example
+let fruits=["apple","banana","mango"]
+let result=fruits.map((fruits,index,array)=>{
+    console.log("Fruit:",fruits)
+    console.log("Index:",index)
+    console.log("Array:",array)
+    return fruits
+})
+console.log(result)
+
+//example2: lowercase names array and use map to make it uppercase
