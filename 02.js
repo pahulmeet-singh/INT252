@@ -35,20 +35,29 @@ console.log(multiply4())
 
 // ARRAYS- 
 
-let marks=[10,20,30,40,50]
-console.log(marks)
+let arr=[10,20,30,40,50]
+console.log(arr)
 
-for(let i=0;i<marks.length;i++){
-    console.log(marks[i])
+for(let i=0;i<arr.length;i++){
+    console.log(arr[i])
 }
 
 // for of loop
-for(let mark of marks){
+for(let mark of arr){
     console.log(mark)
 }
 
 // for in loop
-for(let index in marks){
+for(let index in arr){
     console.log(index)
-    console.log(marks[index])
+    console.log(arr[index])
 }
+
+// for each loop
+arr.forEach((mark,index)=>{
+    console.log(mark)
+    console.log(index)
+})
+
+// for each loop with arrow function
+arr.forEach((mark,index)=>console.log(mark,index))
