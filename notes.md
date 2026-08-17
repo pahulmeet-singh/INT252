@@ -30,3 +30,7 @@ lec 2 - 17 august
 - Array in JS is an object which is used to represent a collection of similar type of elements.
 - It allows you to store more than one value or a group of values in a single variable name.
 - We can store any valid values such as objects, numbers, strings, function, and also other arrays.
+
+## Map
+
+- Map() cretes a new array by applying a funtion to every element of an existing array.

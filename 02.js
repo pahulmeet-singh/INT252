@@ -63,3 +63,8 @@ arr.forEach((mark,index)=>{
 arr.forEach((mark,index)=>console.log(mark,index))
 // for each loop with arrow function and single parameter
 arr.forEach (mark=>console.log(mark))
+
+// ------------------------------------------------------------
+
+// MAP
+
