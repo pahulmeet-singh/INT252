@@ -1,0 +1,54 @@
+// 17 aug-lec 2
+// difference between functions and arrow functions
+let a,b
+
+function multiply(a,b){
+    return a*b
+}
+
+//now writing arrow function for the same multiply function
+let multiply1=(a,b)=>{
+    return a*b
+}
+
+// now writing arrow function in one line
+let multiply2=(a,b)=> a*b
+
+console.log(multiply(2,3))
+console.log(multiply1(2,3))
+console.log(multiply2(2,3))
+
+//the brackets in a an arrow function can be removed only if there is a single argument.
+let multiply3=a=> a*2
+
+console.log(multiply3(2))
+
+//if there is no argument, then we have to use brackets
+let multiply4=()=> 2*2
+
+console.log(multiply4())
+
+//the reason that we need brackets when there is no argument is that the arrow function syntax requires parentheses to indicate the absence of parameters. Without parentheses, the function would be ambiguous and could lead to syntax errors.
+// and the reson we need brackets for more than one argument is that the arrow function syntax requires parentheses to group multiple parameters together. Without parentheses, the function would be ambiguous and could lead to syntax errors.
+
+// ------------------------------------------------------------
+
+// ARRAYS- 
+
+let marks=[10,20,30,40,50]
+console.log(marks)
+
+for(let i=0;i<marks.length;i++){
+    console.log(marks[i])
+}
+
+// for of loop
+for(let mark of marks){
+    console.log(mark)
+}
+
+// for in loop
+for(let index in marks){
+    console.log(index)
+    console.log(marks[index])
+}
