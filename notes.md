@@ -38,3 +38,7 @@ lec 2 - 17 august
 ## Filter
 
 - Filter() creates a new array with all elements that pass the test implemented by the provided function.
+
+----
+
+lec 3 - 20 august
