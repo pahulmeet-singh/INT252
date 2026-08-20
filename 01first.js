@@ -13,7 +13,7 @@
 
 console.log("Pahulmeet Singh")
 
-// ----------------------------
+// -----------------------------------------------------------------------
 
 var a=20
 console.log(a)
@@ -25,7 +25,7 @@ console.log(a)// update
 var a=40
 console.log(a)// redeclare
 
-// ---------------------------
+// -----------------------------------------------------------------------
 
 let a1=20
 console.log(a1)
@@ -36,7 +36,7 @@ console.log(a1)// update
 // let a1=40
 // console.log(a1)// redeclare not allowed
 
-// ---------------------------
+// -----------------------------------------------------------------------
 
 const a2=20
 console.log(a2)
@@ -46,7 +46,7 @@ console.log(a2)
 // const a2=40
 // console.log(a2)// redeclare not allowed
 
-// ---------------------------
+// -----------------------------------------------------------------------
 
 //testing let and const in block scope
 
@@ -64,7 +64,7 @@ if(true){
 
 // console.log(c) // not accessible outside the block scope
 
-// ---------------------------
+// -----------------------------------------------------------------------
 
 // testing var in block scope
 
@@ -75,7 +75,7 @@ if(true){
 
 console.log(d) // accessible outside the block scope
 
-// ---------------------------
+// -----------------------------------------------------------------------
 
 // testing var in function scope
 
@@ -91,7 +91,7 @@ mul(5,10)
 //but
 console.log(mul(4,5)) // accessible outside the function scope because it is returning the value of result
 
-// ---------------------------
+// -----------------------------------------------------------------------
 
 // ARROW FUNCTION
 

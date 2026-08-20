@@ -42,3 +42,21 @@ lec 2 - 17 august
 ----
 
 lec 3 - 20 august
+
+## Reduce
+
+- Reduce() takes an array and reduces it to a single value by applying a function to each element of the array.
+
+## Array Destructuring
+
+- Array destructuring is a feature in JavaScript that allows you to extract values from arrays and assign them to variables in a more concise and readable way.
+
+## Object Destructuring
+
+- Object destructuring is a feature in JavaScript that allows you to extract values from objects and assign them to variables in a more concise and readable way.
+
+## Spread Operator
+
+- The spread operator is a feature in JavaScript that allows you to expand an iterable (like an array or object) into individual elements or properties.
+- if the ... is on the giving side of the assignment operator,(like passing data or creating a new array) it is called spread operator
+and if it is on the receiving side of the assignment operator, it is called rest operator.
