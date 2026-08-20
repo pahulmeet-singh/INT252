@@ -60,3 +60,12 @@ lec 3 - 20 august
 - The spread operator is a feature in JavaScript that allows you to expand an iterable (like an array or object) into individual elements or properties.
 - if the ... is on the giving side of the assignment operator,(like passing data or creating a new array) it is called spread operator
 and if it is on the receiving side of the assignment operator, it is called rest operator.
+
+## Rest Parameter
+
+- The rest parameter is a feature in JavaScript that allows you to represent an indefinite number of arguments as an array.
+- spread is used in array and object literals, while rest is used in function parameters and destructuring assignments.
+
+## ES6 MODULES
+
+- ES6 modules are a way to organize and share code in JavaScript. They allow you to split your code into smaller, reusable pieces called modules, which can be imported and exported as needed.

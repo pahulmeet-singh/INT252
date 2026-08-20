@@ -80,3 +80,43 @@ console.log(students)
 let newStudents=["Aman","Vishal","Rahul"]
 let updatedStudents=[...newStudents,"Pahulmeet"]
 console.log(updatedStudents)
+
+//using spread operator for objects
+
+let obj1={
+    name: "John",
+    age: 30,
+    city: "New York"
+}
+
+let obj2={
+    ...obj1,
+    country: "USA"
+}
+
+console.log(obj2)
+
+
+// -----------------------------------------------------------------------
+
+// REST PARAMETERS
+
+function sum1(...numbers){
+    let total=0
+    for(let number of numbers){
+        total+=number
+    }
+    return total
+}
+
+console.log(sum1(1,2,3,4,5)) // 15
+console.log(sum1(10,20,30)) // 60
+
+// in spread we expand        an array or object into individual elements or properties, while in rest we collect multiple elements or properties into a single array or object.
+// in rest we collect         multiple elements or properties into a single array or object, while in spread we expand an array or object into individual elements or properties.
+
+//spread is used in array and object literals, while rest is used in function parameters and destructuring assignments.
+
+// -----------------------------------------------------------------------
+
+// ES6 MODULES
