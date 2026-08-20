@@ -165,9 +165,8 @@ console.log(addTotal(30)) // 60
 
 function addTotalImpure(value){
     total+=value
-    return total
 }
 
-console.log(addTotalImpure(10)) // 10
-console.log(addTotalImpure(20)) // 30
-console.log(addTotalImpure(30)) // 60
+console.log(addTotalImpure(
+
+// the reason is that the addTotalImpure function modifies the external variable total, which can lead to unpredictable behavior if the function is called multiple times with different inputs. The output of the function depends on the current value of total, which can change over time. This makes the function impure, as it has side effects that modify external state.
