@@ -125,11 +125,49 @@ console.log(sum1(10,20,30)) // 60
 
 // -----------------------------------------------------------------------
 
-// mutability
+// mutability and immutability
 
 let student={
     name:"Rahul",
     age:20
 }
+// mutability means that the value of an object can be changed after it is created. In this case, we are changing the value of the age property of the student object from 20 to 21. This is allowed because objects in JavaScript are mutable by default.
 student.age=21
 console.log(student.age) // 21
+
+// immutability can be achieved by using the spread operator to create a new object with the updated value, rather than modifying the original object directly.
+let update={
+    ...student,
+    age:30
+}
+
+console.log(student.age) // 21
+console.log(update.age) // 30
+
+//the reason is that the spread operator creates a new object with the same properties as the original object, but with the updated value for the age property. The original object remains unchanged, so its age property still has the value of 21. The new object, update, has the updated value of 30 for the age property. This demonstrates immutability, where the original object is not modified, but a new object is created with the updated value.
+
+// -----------------------------------------------------------------------
+
+// pure and impure functions
+
+// pure function is a function that always produces the same output for the same input and does not have any side effects. In other words, a pure function does not modify any external state or variables, and its output depends only on its input parameters.
+let total=0;
+function addTotal(value){
+    total+=value
+    return total
+}
+
+console.log(addTotal(10)) // 10
+console.log(addTotal(20)) // 30
+console.log(addTotal(30)) // 60
+
+// impure function is a function that may produce different outputs for the same input or has side effects that modify external state or variables. In other words, an impure function may depend on external factors or modify external state, which can lead to unpredictable behavior.   
+
+function addTotalImpure(value){
+    total+=value
+    return total
+}
+
+console.log(addTotalImpure(10)) // 10
+console.log(addTotalImpure(20)) // 30
+console.log(addTotalImpure(30)) // 60
