@@ -71,4 +71,12 @@ console.log(city); // "New York"
 
 // 3 dots are used in rest parameters and spread operator. The rest parameter syntax allows us to represent an indefinite number of arguments as an array, while the spread operator allows us to expand an array or object into individual elements or properties.
 
-// REST 
+// SPREAD OPERATOR
+
+let students=["Aman","Vishal","Rahul"]
+students.push("Pahulmeet")
+console.log(students)
+
+let newStudents=["Aman","Vishal","Rahul"]
+let updatedStudents=[...newStudents,"Pahulmeet"]
+console.log(updatedStudents)
