@@ -120,3 +120,16 @@ console.log(sum1(10,20,30)) // 60
 // -----------------------------------------------------------------------
 
 // ES6 MODULES
+
+// import and export demostrated in app.js and Math.js
+
+// -----------------------------------------------------------------------
+
+// mutability
+
+let student={
+    name:"Rahul",
+    age:20
+}
+student.age=21
+console.log(student.age) // 21
