@@ -75,3 +75,29 @@ and if it is on the receiving side of the assignment operator, it is called rest
 lec 4 - 24 august
 
 ## shallow copy and deep copy
+
+- A shallow copy creates a new object or array that references the same memory location as the original object or array. This means that if you modify the shallow copy, the changes will also affect the original object or array.
+
+- A deep copy creates a new object or array that is completely independent of the original object or array. This means that if you modify the deep copy, the changes will not affect the original object or array.
+
+## SPA vs MPA
+
+- SPA (Single Page Application) is a web application that loads a single HTML page and dynamically updates the content as the user interacts with the app. It provides a smoother user experience and faster navigation since it doesn't require full page reloads.
+- MPA (Multi-Page Application) is a web application that consists of multiple separate pages, each with its own HTML structure. Navigation between pages requires full page reloads.
+
+### SPA coupling vs MPA coupling
+
+- SPA coupling refers to the tight integration of components and modules within a single-page application. Changes in one part of the application can affect other parts, making it more challenging to maintain and scale.
+- MPA coupling refers to the loose integration of separate pages in a multi-page application. The frontend and backend are more interdependent. All coding is usually housed under one project, making it easier to maintain and scale.
+
+### what is seo and how it works
+
+- SEO (Search Engine Optimization) is the practice of optimizing a website to improve its visibility and ranking on search engine results pages (SERPs). It involves various techniques and strategies to make the website more attractive to search engines, thereby increasing organic traffic.
+
+## REACT Components
+
+- React components are the building blocks of a React application. They are reusable pieces of code that define how a part of the user interface (UI) should look and behave. Components can be either class-based or functional, and they can manage their own state and lifecycle methods.
+
+### JavaScript DOM
+
+- The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the structure of a document as a tree of nodes, where each node is an object representing a part of the document. JavaScript can manipulate the DOM to dynamically update the content, structure, and styling of a web page.
