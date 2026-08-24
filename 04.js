@@ -64,3 +64,25 @@ console.log(deepcopy1.details.age) // 45
 let a={name:"Pahul"}
 let b={name:"Pahul"}
 console.log(a===b) // false
+//cause different memory location
+
+let a1={name:"Rahul"}
+let b1=a1
+console.log(a1===b1) // true
+//cause same memory location
+
+// let x
+// let a3=(x,10)
+// let b3=(x,10)
+// console.log(a3===b3) //true
+
+let a4={x:10}
+let b4={x:10}
+console.log(a4===b4) // false
+
+let a5={x:10}
+let b5=a5
+console.log(a5===b5) // true
+
+// -----------------------------------------------------------------------------------
+
