@@ -1,3 +1,5 @@
+// 24 august - lec 04
+
 // shallow copy and deep copy
 
 // SHALLOW COPY
@@ -56,3 +58,9 @@ console.log(deepcopy1.details.age) // 45
 // This means that all nested objects are also copied, so when we change the age property in the deep copy, it does not affect the original object.
 
 // we prefer 
+
+// -----------------------------------------------------------------------------------
+
+let a={name:"Pahul"}
+let b={name:"Pahul"}
+console.log(a===b) // false

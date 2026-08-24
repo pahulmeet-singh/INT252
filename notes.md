@@ -69,3 +69,9 @@ and if it is on the receiving side of the assignment operator, it is called rest
 ## ES6 MODULES
 
 - ES6 modules are a way to organize and share code in JavaScript. They allow you to split your code into smaller, reusable pieces called modules, which can be imported and exported as needed.
+
+----
+
+lec 4 - 24 august
+
+## shallow copy and deep copy
