@@ -162,3 +162,7 @@ examples of meta tags include:
 ### what is the purpose of a bundler in ReactJs?
 
 - A bundler in ReactJs is a tool that takes the various JavaScript files, CSS files, and other assets of a React application and combines them into a single or a few optimized files for deployment. The purpose of a bundler is to improve the performance and efficiency of the application by reducing the number of HTTP requests, minimizing file sizes through techniques like minification and tree shaking, and ensuring that all dependencies are properly resolved and included in the final build. Popular bundlers used in ReactJs development include Webpack, Parcel, and Rollup.
+
+## What is VITE?
+
+- Vite is a modern build tool and development server for web applications, including ReactJs projects. It is designed to provide a faster and more efficient development experience by leveraging native ES modules in the browser and using a highly optimized build process. Vite offers features like hot module replacement (HMR), fast cold starts, and optimized production builds, making it a popular choice for developers looking to streamline their workflow and improve the performance of their applications.
