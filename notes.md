@@ -106,4 +106,18 @@ lec 4 - 24 august
 
 lec 5- 27 august
 
-## 
+## what is metadata and what are meta tags?
+
+- Metadata is data that provides information about other data. In the context of web development, metadata is used to describe the content and structure of a web page, helping search engines and browsers understand the page's purpose and relevance
+examples of metadata include the page title, description, keywords, author, and viewport settings.
+for example, the metadata for a web page might include the following information:
+  - Title: "My Sample Web Page"
+  - Description: "This is a sample web page that demonstrates the use of metadata and meta tags."
+  - Keywords: "web development, HTML, CSS, JavaScript"
+
+- Meta tags are HTML elements that provide metadata about a web page. They are placed in the `<head>` section of the HTML document and can include information such as the page's title, description, keywords, author, and viewport settings. Meta tags play a crucial role in SEO and how search engines index and display web pages in search results.
+examples of meta tags include:
+  - `<meta name="description" content="This is a sample web page.">`
+  - `<meta name="keywords" content="web, development, HTML, CSS, JavaScript">`
+  - `<meta name="author" content="John Doe">`
+  - `<meta name="viewport" content="width=device-width, initial-scale=1">`
