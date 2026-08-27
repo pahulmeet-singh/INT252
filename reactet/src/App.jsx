@@ -9,6 +9,7 @@
 
 // export default App;
 
+// using JSX to display a simple introduction
 function App() {
   const name = "John Doe";
   const course = "BTech";
@@ -24,3 +25,6 @@ function App() {
 }
 
 export default App;
+
+// these parentheses allow us to write multi-line JSX code without any issues. It is a common practice to wrap the JSX code in parentheses for better readability and to avoid potential errors when returning multiple lines of JSX.
+
