@@ -101,3 +101,7 @@ lec 4 - 24 august
 ### JavaScript DOM
 
 - The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the structure of a document as a tree of nodes, where each node is an object representing a part of the document. JavaScript can manipulate the DOM to dynamically update the content, structure, and styling of a web page.
+
+----
+
+lec 5- 27 august

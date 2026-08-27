@@ -57,7 +57,7 @@ console.log(deepcopy1.details.age) // 45
 // In this case, we are using structuredClone() method to create a deep copy of the original object. 
 // This means that all nested objects are also copied, so when we change the age property in the deep copy, it does not affect the original object.
 
-// we prefer 
+// we prefer creatind deep copy using structuredClone() method because it is more efficient and faster than using JSON.parse() and JSON.stringify() methods.
 
 // -----------------------------------------------------------------------------------
 
