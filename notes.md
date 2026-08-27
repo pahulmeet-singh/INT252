@@ -97,6 +97,8 @@ lec 4 - 24 august
 ## REACT Components
 
 - React components are the building blocks of a React application. They are reusable pieces of code that define how a part of the user interface (UI) should look and behave. Components can be either class-based or functional, and they can manage their own state and lifecycle methods.
+  - state refers to the data that determines the behavior and rendering of a component. It can change over time, usually in response to user actions or other events, and when it does, the component re-renders to reflect the new state.
+  - lifecycle methods are special methods in class-based React components that allow you to hook into different stages of a component's life, such as when it is created, updated, or destroyed. These methods enable you to perform actions like fetching data, updating the DOM, or cleaning up resources at specific points in the component's lifecycle.
 
 ### JavaScript DOM
 
@@ -120,4 +122,39 @@ examples of meta tags include:
   - `<meta name="description" content="This is a sample web page.">`
   - `<meta name="keywords" content="web, development, HTML, CSS, JavaScript">`
   - `<meta name="author" content="John Doe">`
+  - `<meta charset="UTF-8">`
   - `<meta name="viewport" content="width=device-width, initial-scale=1">`
+  
+### is title a meta tag?
+
+- The title of a web page is not considered a meta tag. The title is defined using the `<title>` element, which is placed within the `<head>` section of the HTML document. While the title provides important information about the content of the page and is used by search engines for indexing and displaying search results, it is not classified as a meta tag. Meta tags, on the other hand, are specific HTML elements that provide additional metadata about the page, such as descriptions, keywords, and author information.
+
+## Virtual DOM
+
+- The virtual DOM (Document Object Model) is a concept used in modern web development frameworks, such as React, to improve the performance and efficiency of updating the user interface (UI). It is an in-memory representation of the actual DOM, which allows for faster updates and rendering of changes to the UI.
+- it is a lightweight copy of the real DOM that can be manipulated and updated without directly affecting the actual DOM. When changes are made to the virtual DOM, a diffing algorithm is used to compare the new virtual DOM with the previous version, and only the necessary updates are applied to the real DOM. This minimizes the number of direct manipulations to the actual DOM, which can be slow and resource-intensive.
+
+### what is the difference between virtual DOM and real DOM?
+
+- The virtual DOM is a lightweight, in-memory representation of the actual DOM, while the real DOM is the actual structure of the web page that is rendered in the browser. The virtual DOM allows for efficient updates and rendering of changes to the UI by minimizing direct manipulations to the real DOM, which can be slow and resource-intensive. In contrast, the real DOM is responsible for displaying the content and structure of the web page to the user.
+
+#### what is a diffing algorithm?
+
+- A diffing algorithm is a computational method used to compare two versions of a data structure, such as the virtual DOM, and identify the differences between them. In the context of web development frameworks like React, the diffing algorithm is used to efficiently update the user interface (UI) by determining which parts of the virtual DOM have changed and need to be updated in the actual DOM.
+
+### JSX
+
+- JSX (JavaScript XML) is a syntax extension for JavaScript that allows developers to write HTML-like code within their JavaScript code. It is commonly used in React to define the structure and appearance of user interface (UI) components. JSX makes it easier to create and manage UI elements by allowing developers to write code that closely resembles the final rendered output.
+
+## MVC
+
+- MVC (Model-View-Controller) is a software architectural pattern used for developing web applications. It separates the application into three interconnected components: the Model, which manages the data and business logic; the View, which handles the presentation and user interface; and the Controller, which processes user input and interacts with the Model and View to update the application state.
+
+## Disadvantages of ReactJs
+
+1. The high pace of development in the React ecosystem can make it challenging for developers to keep up with the latest features, best practices, and updates. This rapid evolution may lead to compatibility issues and require frequent learning and adaptation.
+2. The steep learning curve for beginners can make it difficult for new developers to get started with React. Understanding concepts like JSX, state management, and the virtual DOM may require additional time and effort compared to other frameworks or libraries.
+3. React's flexibility and unopinionated nature can lead to inconsistencies in code structure and architecture across different projects. Developers may have different approaches to solving problems, which can result in a lack of standardization and maintainability challenges.
+4. Poor documentation and limited official resources can make it difficult for developers to find reliable information and guidance when working with React. This may lead to confusion and reliance on third-party tutorials or community resources, which can vary in quality and accuracy.
+5. View Part - React focuses primarily on the view layer of an application, which means that developers need to integrate additional libraries or frameworks for state management, routing, and other functionalities. This can increase the complexity of the application and require more effort to set up and maintain.
+6. JSX as a barrier - JSX, while powerful, can be a barrier for developers who are not familiar with its syntax and concepts. It may take time to become comfortable with JSX and understand how it integrates with JavaScript and the React ecosystem.
