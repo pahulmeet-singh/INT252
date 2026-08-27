@@ -158,3 +158,7 @@ examples of meta tags include:
 4. Poor documentation and limited official resources can make it difficult for developers to find reliable information and guidance when working with React. This may lead to confusion and reliance on third-party tutorials or community resources, which can vary in quality and accuracy.
 5. View Part - React focuses primarily on the view layer of an application, which means that developers need to integrate additional libraries or frameworks for state management, routing, and other functionalities. This can increase the complexity of the application and require more effort to set up and maintain.
 6. JSX as a barrier - JSX, while powerful, can be a barrier for developers who are not familiar with its syntax and concepts. It may take time to become comfortable with JSX and understand how it integrates with JavaScript and the React ecosystem.
+
+### what is the purpose of a bundler in ReactJs?
+
+- A bundler in ReactJs is a tool that takes the various JavaScript files, CSS files, and other assets of a React application and combines them into a single or a few optimized files for deployment. The purpose of a bundler is to improve the performance and efficiency of the application by reducing the number of HTTP requests, minimizing file sizes through techniques like minification and tree shaking, and ensuring that all dependencies are properly resolved and included in the final build. Popular bundlers used in ReactJs development include Webpack, Parcel, and Rollup.
