@@ -96,7 +96,7 @@ function App() {
 export default App;
 
 
-
+// to manually comment out in jsx we use curly braces.
 
 
 
