@@ -97,7 +97,4 @@ export default App;
 
 
 // to manually comment out in jsx we use curly braces.
-
-
-
-//
+// this is because in the return function , we cannot use the normal comment syntax. So we use curly braces to wrap the comment and then use the normal comment syntax inside it.
