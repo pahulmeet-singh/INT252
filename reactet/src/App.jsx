@@ -14,27 +14,26 @@
 // export default App;
 
 // using JSX to display a simple introduction
-function App() {
-  const name = "John Doe";
-  const course = "BTech";
-  const sem = 1;
-  return(
-    <>
-    <div>
-      <h1>My Intro</h1>
-      <p>Name: {name}</p>
-      {/* <p>Course: {course}</p> */}
-      <p>Semester: {sem}</p>
+// function App() {
+//   const name = "John Doe";
+//   const course = "BTech";
+//   const sem = 1;
+//   return(
+//     <>
+//     <div>
+//       <h1>My Intro</h1>
+//       <p>Name: {name}</p>
+//       {/* <p>Course: {course}</p> */}
+//       <p>Semester: {sem}</p>
       
-    </div>
-    <div>
-      <h2> Lovely Professional University</h2>
-    </div>
-    </>
-  )
-}
-
-export default App;
+//     </div>
+//     <div>
+//       <h2> Lovely Professional University</h2>
+//     </div>
+//     </>
+//   )
+// }
+// export default App;
 
 // these parentheses allow us to write multi-line JSX code without any issues. It is a common practice to wrap the JSX code in parentheses for better readability and to avoid potential errors when returning multiple lines of JSX.
 
@@ -106,4 +105,9 @@ export default App;
 
 // export default App;
 
+
+
+
+
+// same as above but now using a button for the user to click and display the results in JSX on the webpage
 
