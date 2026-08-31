@@ -105,8 +105,12 @@
 
 // export default App;
 
+
+
 // same as above but now using a button for the user to click and display the results in JSX on the webpage
 import { useState } from 'react';
+import Welcome from'./Welcome'
+import Activity1 from './Activity1'
 
 function App() {
   const [num1, setNum1] = useState(0);
@@ -122,6 +126,7 @@ function App() {
   };
 
   return (
+    <>
     <div>
       <h1>Math Operations</h1>
 
@@ -148,6 +153,7 @@ function App() {
         </div>
       )}
     </div>
+    </>
   );
 }
 
