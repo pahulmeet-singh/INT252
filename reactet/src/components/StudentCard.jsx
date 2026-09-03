@@ -44,6 +44,7 @@
 
 
 //multiple components in react
+import Button from './Button';
 import Card from './Card';
 import StudentHeader from './StudentHeader';
 function StudentCard({ name, course, rollNo }) {
@@ -53,6 +54,7 @@ function StudentCard({ name, course, rollNo }) {
 
       <p>{course}</p>
       <p> Roll no: {rollNo}</p>
+      <Button>View Profile</Button>
     </Card>
   )
 }
