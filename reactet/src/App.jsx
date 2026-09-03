@@ -108,54 +108,67 @@
 
 
 // same as above but now using a button for the user to click and display the results in JSX on the webpage
-import { useState } from 'react';
-import Welcome from'./Welcome'
-import Activity1 from './Activity1'
+// import { useState } from 'react';
+// import Welcome from'./Welcome'
+// import Activity1 from './Activity1'
 
+// function App() {
+//   const [num1, setNum1] = useState(0);
+//   const [num2, setNum2] = useState(0);
+//   const [sum, setSum] = useState(null);
+//   const [product, setProduct] = useState(null);
+//   const [showResults, setShowResults] = useState(false);
+
+//   const handleCalculate = () => {
+//     setSum(Number(num1) + Number(num2));
+//     setProduct(Number(num1) * Number(num2));
+//     setShowResults(true);
+//   };
+
+//   return (
+//     <>
+//     <div>
+//       <h1>Math Operations</h1>
+
+//       <input
+//         type="number"
+//         value={num1}
+//         onChange={(e) => setNum1(e.target.value)}
+//         placeholder="Enter first number"
+//       />
+
+//       <input
+//         type="number"
+//         value={num2}
+//         onChange={(e) => setNum2(e.target.value)}
+//         placeholder="Enter second number"
+//       />
+
+//       <button onClick={handleCalculate}>Calculate</button>
+
+//       {showResults && (
+//         <div>
+//           <p>Sum: {sum}</p>
+//           <p>Product: {product}</p>
+//         </div>
+//       )}
+//     </div>
+//     </>
+//   );
+// }
+
+// export default App;
+
+
+
+import StudentCard from './StudentCard';
 function App() {
-  const [num1, setNum1] = useState(0);
-  const [num2, setNum2] = useState(0);
-  const [sum, setSum] = useState(null);
-  const [product, setProduct] = useState(null);
-  const [showResults, setShowResults] = useState(false);
-
-  const handleCalculate = () => {
-    setSum(Number(num1) + Number(num2));
-    setProduct(Number(num1) * Number(num2));
-    setShowResults(true);
-  };
-
   return (
-    <>
     <div>
-      <h1>Math Operations</h1>
+      <h1>Student Dashboard</h1>
+      <StudentCard />
 
-      <input
-        type="number"
-        value={num1}
-        onChange={(e) => setNum1(e.target.value)}
-        placeholder="Enter first number"
-      />
-
-      <input
-        type="number"
-        value={num2}
-        onChange={(e) => setNum2(e.target.value)}
-        placeholder="Enter second number"
-      />
-
-      <button onClick={handleCalculate}>Calculate</button>
-
-      {showResults && (
-        <div>
-          <p>Sum: {sum}</p>
-          <p>Product: {product}</p>
-        </div>
-      )}
     </div>
-    </>
-  );
+  )
 }
-
 export default App;
-
