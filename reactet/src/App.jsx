@@ -176,7 +176,7 @@
 
 
 //learning props in react
-import StudentCard from './StudentCard';
+import StudentCard from './components/StudentCard';
 function App() {
   return (
     <div>

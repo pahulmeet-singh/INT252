@@ -29,15 +29,32 @@
 
 
 //destructuring props in react
+// function StudentCard({ name, course, rollNo }) {
+//   return (
+//     <>
+//     <div>
+//       <h2>{name}</h2>
+//       <p>{course}</p>
+//       <p> Roll no: {rollNo}</p>
+//     </div>
+//     </>
+//   )
+// }
+// export default StudentCard;
+
+
+//multiple components in react
+import Card from './Card';
+import StudentHeader from './StudentHeader';
 function StudentCard({ name, course, rollNo }) {
   return (
-    <>
-    <div>
-      <h2>{name}</h2>
-      <p>{course}</p>
-      <p> Roll no: {rollNo}</p>
-    </div>
-    </>
+    <card>
+      <StudentHeader />
+      <div>
+        <p>{course}</p>
+        <p> Roll no: {rollNo}</p>
+      </div>
+    </card>
   )
 }
 export default StudentCard;
