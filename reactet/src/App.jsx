@@ -186,6 +186,16 @@ function App() {
         course="CSE"
         rollNo="12345"
       />
+      <StudentCard 
+        name="John Doe"
+        course="ECE"
+        rollNo="67890"
+      />
+      <StudentCard 
+        name="Jane Smith"
+        course="ME"
+        rollNo="54321"
+      />
     </div>
   )
 }
