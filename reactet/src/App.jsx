@@ -161,13 +161,31 @@
 
 
 
+// import StudentCard from './StudentCard';
+// function App() {
+//   return (
+//     <div>
+//       <h1>Student Dashboard</h1>
+//       <StudentCard />
+
+//     </div>
+//   )
+// }
+// export default App;
+
+
+
+//learning props in react
 import StudentCard from './StudentCard';
 function App() {
   return (
     <div>
       <h1>Student Dashboard</h1>
-      <StudentCard />
-
+      <StudentCard 
+        name="Pahul"
+        course="CSE"
+        rollNo="12345"
+      />
     </div>
   )
 }
