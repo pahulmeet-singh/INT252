@@ -14,13 +14,28 @@
 
 
 //learning props in react
-function StudentCard(props) {
+// function StudentCard(props) {
+//   return (
+//     <>
+//     <div>
+//       <h2>{props.name}</h2>
+//       <p>{props.course}</p>
+//       <p> Roll no: {props.rollNo}</p>
+//     </div>
+//     </>
+//   )
+// }
+// export default StudentCard;
+
+
+//destructuring props in react
+function StudentCard({ name, course, rollNo }) {
   return (
     <>
     <div>
-      <h2>{props.name}</h2>
-      <p>{props.course}</p>
-      <p> Roll no: {props.rollNo}</p>
+      <h2>{name}</h2>
+      <p>{course}</p>
+      <p> Roll no: {rollNo}</p>
     </div>
     </>
   )

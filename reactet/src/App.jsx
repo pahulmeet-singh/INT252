@@ -200,3 +200,5 @@ function App() {
   )
 }
 export default App;
+
+// this is called props drilling. We are passing the props from the parent component to the child component. The child component can then use these props to display the data. This is a common pattern in React for passing data from parent to child components.
