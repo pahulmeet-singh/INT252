@@ -47,13 +47,24 @@
 import Button from './Button';
 import Card from './Card';
 import StudentHeader from './StudentHeader';
-function StudentCard({ name, course, rollNo }) {
+function StudentCard({ name, course, rollNo, isActive }) {
   return (
     <Card>
       <StudentHeader name={name} />
 
       <p>{course}</p>
       <p> Roll no: {rollNo}</p>
+
+      {/* //ternary operator in react */}
+      {isActive ? (
+        <p>Active Student</p>
+      ) : (
+        <p>Inactive Student</p>
+      )}
+
+      {/* demonstrating and operator in react */}
+      {isActive && <p>Welcome to the course!</p>}
+
       <Button>View Profile</Button>
     </Card>
   )

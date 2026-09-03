@@ -185,16 +185,19 @@ function App() {
         name="Pahul"
         course="CSE"
         rollNo="12345"
+        isActive={true}
       />
       <StudentCard 
         name="John Doe"
         course="ECE"
         rollNo="67890"
+        isActive={false}
       />
       <StudentCard 
         name="Jane Smith"
         course="ME"
         rollNo="54321"
+        isActive={true}
       />
     </div>
   )
@@ -202,3 +205,5 @@ function App() {
 export default App;
 
 // this is called props drilling. We are passing the props from the parent component to the child component. The child component can then use these props to display the data. This is a common pattern in React for passing data from parent to child components.
+
+//isActive is a boolean prop that we are passing to the StudentCard component. We can use this prop to conditionally render different content based on whether the student is active or not. In this case, we are displaying "Active Student" if isActive is true, and "Inactive Student" if isActive is false.
