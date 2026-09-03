@@ -48,13 +48,12 @@ import Card from './Card';
 import StudentHeader from './StudentHeader';
 function StudentCard({ name, course, rollNo }) {
   return (
-    <card>
-      <StudentHeader />
-      <div>
-        <p>{course}</p>
-        <p> Roll no: {rollNo}</p>
-      </div>
-    </card>
+    <Card>
+      <StudentHeader name={name} />
+
+      <p>{course}</p>
+      <p> Roll no: {rollNo}</p>
+    </Card>
   )
 }
 export default StudentCard;
