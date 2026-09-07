@@ -253,3 +253,5 @@ export default App;
 // They can be functional components or class components.
 // Functional components are simpler and are recommended for most use cases. They can accept props and return JSX to render the UI. 
 // Class components are more complex and have additional features like state and lifecycle methods, but they are less commonly used in modern React development.
+
+//the reason we have only one index.html file in the public folder is because React applications are single-page applications (SPAs). In an SPA, the entire application is loaded into a single HTML page, and React handles the rendering of different components and views dynamically without requiring multiple HTML files. The index.html file serves as the entry point for the React application, and React takes care of updating the content on the page based on user interactions and state changes. This approach allows for a smoother user experience and faster navigation within the application.
