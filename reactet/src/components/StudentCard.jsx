@@ -93,8 +93,12 @@ function StudentCard({ name, course, rollNo, isActive }) {
         <p>Inactive Student</p>
       }
 
-      {/* demonstrating and operator in react */}
-      {isActive && <p>Welcome to the course!</p>}
+      {/* the reason if does not work in 
+      card is that it is a statement, not an expression .
+      here we are in JSX, which is an expression, so we cannot use statements like if else directly.
+      instead, we can use ternary operator or logical operators to conditionally render elements in JSX.
+      if we 
+      */}
 
       <Button>View Profile</Button>
     </Card>
