@@ -211,31 +211,33 @@
 
 // 
 import {useState} from 'react';
-import StudentList from './StudentList';
+import StudentList from './components/StudentList';
 import StudentCard from './components/StudentCard';
 function App() {
-  return (
-    <div>
-      <h1>Student Dashboard</h1>
-      <StudentCard 
-        name="Pahul"
-        course="CSE"
-        rollNo="12345"
-        isActive={true}
-      />
-      <StudentCard 
-        name="John Doe"
-        course="ECE"
-        rollNo="67890"
-        isActive={false}
-      />
-      <StudentCard 
-        name="Jane Smith"
-        course="ME"
-        rollNo="54321"
-        isActive={true}
-      />
-    </div>
-  )
+  const students=[
+    {
+      id:1,
+      name="Pahul",
+      course="CSE",
+      rollNo="12345"  
+    },
+    {
+      id:2,
+      name="John Doe",
+      course="ECE",
+      rollNo="67890",
+    },
+    {
+      id:3,
+      name="Jane Smith",
+      course="ME",
+      rollNo="54321",
+    },
+  ];
+
+  const [selectedStudent, setSelectedStudent] = useState(null);
+
+
+
 }
 export default App;
