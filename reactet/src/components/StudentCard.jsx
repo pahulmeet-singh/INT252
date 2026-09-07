@@ -76,6 +76,38 @@
 
 
 //same using if else statements
+// import Button from './Button';
+// import Card from './Card';
+// import StudentHeader from './StudentHeader';
+// function StudentCard({ name, course, rollNo, isActive }) {
+//   return (
+//     <Card>
+//       <StudentHeader name={name} />
+
+//       <p>{course}</p>
+//       <p> Roll no: {rollNo}</p>
+
+//       if(isActive) {
+//         <p>Active Student</p>
+//       } else {
+//         <p>Inactive Student</p>
+//       }
+
+//       {/* the reason if does not work in 
+//       card is that it is a statement, not an expression .
+//       here we are in JSX, which is an expression, so we cannot use statements like if else directly.
+//       instead, we can use ternary operator or logical operators to conditionally render elements in JSX.
+//       if we 
+//       */}
+
+//       <Button>View Profile</Button>
+//     </Card>
+//   )
+// }
+// export default StudentCard;
+
+
+// resorting to the older version
 import Button from './Button';
 import Card from './Card';
 import StudentHeader from './StudentHeader';
@@ -87,18 +119,15 @@ function StudentCard({ name, course, rollNo, isActive }) {
       <p>{course}</p>
       <p> Roll no: {rollNo}</p>
 
-      if(isActive) {
+      {/* //ternary operator in react */}
+      {isActive ? (
         <p>Active Student</p>
-      } else {
+      ) : (
         <p>Inactive Student</p>
-      }
+      )}
 
-      {/* the reason if does not work in 
-      card is that it is a statement, not an expression .
-      here we are in JSX, which is an expression, so we cannot use statements like if else directly.
-      instead, we can use ternary operator or logical operators to conditionally render elements in JSX.
-      if we 
-      */}
+      {/* demonstrating and operator in react */}
+      {isActive && <p>Welcome to the course!</p>}
 
       <Button>View Profile</Button>
     </Card>
