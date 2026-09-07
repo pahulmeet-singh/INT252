@@ -213,6 +213,7 @@
 import {useState} from 'react';
 import StudentList from './components/StudentList';
 import StudentCard from './components/StudentCard';
+import StudentDetails from './components/StudentDetails';
 function App() {
   const students=[
     {
@@ -243,7 +244,7 @@ function App() {
         students={students} 
         onSelectStudent={setSelectedStudent} 
       />
-      <StudentCard student={selectedStudent} />
+      <StudentDetails student={selectedStudent} />
     </div>
   )
 }
