@@ -209,7 +209,7 @@
 //isActive is a boolean prop that we are passing to the StudentCard component. We can use this prop to conditionally render different content based on whether the student is active or not. In this case, we are displaying "Active Student" if isActive is true, and "Inactive Student" if isActive is false.
 
 
-// 
+// lifting state up in component hierarchies
 import {useState} from 'react';
 import StudentList from './components/StudentList';
 import StudentCard from './components/StudentCard';
@@ -217,21 +217,21 @@ function App() {
   const students=[
     {
       id:1,
-      name="Pahul",
-      course="CSE",
-      rollNo="12345"  
+      name:"Pahul",
+      course:"CSE",
+      rollNo:"12345"  
     },
     {
       id:2,
-      name="John Doe",
-      course="ECE",
-      rollNo="67890",
+      name:"John Doe",
+      course:"ECE",
+      rollNo:"67890",
     },
     {
       id:3,
-      name="Jane Smith",
-      course="ME",
-      rollNo="54321",
+      name:"Jane Smith",
+      course:"ME",
+      rollNo:"54321",
     },
   ];
 
