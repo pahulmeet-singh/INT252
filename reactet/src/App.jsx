@@ -249,4 +249,7 @@ function App() {
 }
 export default App;
 
-// components are reusable pieces of code that can be used to build the UI of a React application. They can be functional components or class components. Functional components are simpler and are recommended for most use cases. They can accept props and return JSX to render the UI. Class components are more complex and have additional features like state and lifecycle methods, but they are less commonly used in modern React development.
+// components are reusable pieces of code that can be used to build the UI of a React application. 
+// They can be functional components or class components.
+// Functional components are simpler and are recommended for most use cases. They can accept props and return JSX to render the UI. 
+// Class components are more complex and have additional features like state and lifecycle methods, but they are less commonly used in modern React development.
