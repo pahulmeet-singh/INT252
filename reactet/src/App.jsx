@@ -212,7 +212,6 @@
 // lifting state up in component hierarchies
 import {useState} from 'react';
 import StudentList from './components/StudentList';
-import StudentCard from './components/StudentCard';
 import StudentDetails from './components/StudentDetails';
 function App() {
   const students=[
@@ -220,19 +219,19 @@ function App() {
       id:1,
       name:"Pahul",
       course:"CSE",
-      rollNo:"12345"  
+      rollNo:"101"  
     },
     {
       id:2,
       name:"John Doe",
       course:"ECE",
-      rollNo:"67890",
+      rollNo:"102",
     },
     {
       id:3,
       name:"Jane Smith",
       course:"ME",
-      rollNo:"54321",
+      rollNo:"103",
     },
   ];
 
