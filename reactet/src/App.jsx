@@ -236,9 +236,16 @@ function App() {
   ];
 
   const [selectedStudent, setSelectedStudent] = useState(null);
-
-
-
+  return (
+    <div>
+      <h1>Student Dashboard</h1>
+      <StudentList 
+        students={students} 
+        onSelectStudent={setSelectedStudent} 
+      />
+      <StudentCard student={selectedStudent} />
+    </div>
+  )
 }
 export default App;
 
