@@ -28,6 +28,7 @@
 // export default StudentCard;
 
 
+
 //destructuring props in react
 // function StudentCard({ name, course, rollNo }) {
 //   return (
@@ -43,7 +44,38 @@
 // export default StudentCard;
 
 
+
 //multiple components in react
+// import Button from './Button';
+// import Card from './Card';
+// import StudentHeader from './StudentHeader';
+// function StudentCard({ name, course, rollNo, isActive }) {
+//   return (
+//     <Card>
+//       <StudentHeader name={name} />
+
+//       <p>{course}</p>
+//       <p> Roll no: {rollNo}</p>
+
+//       {/* //ternary operator in react */}
+//       {isActive ? (
+//         <p>Active Student</p>
+//       ) : (
+//         <p>Inactive Student</p>
+//       )}
+
+//       {/* demonstrating and operator in react */}
+//       {isActive && <p>Welcome to the course!</p>}
+
+//       <Button>View Profile</Button>
+//     </Card>
+//   )
+// }
+// export default StudentCard;
+
+
+
+//same using if else statements
 import Button from './Button';
 import Card from './Card';
 import StudentHeader from './StudentHeader';
@@ -55,12 +87,11 @@ function StudentCard({ name, course, rollNo, isActive }) {
       <p>{course}</p>
       <p> Roll no: {rollNo}</p>
 
-      {/* //ternary operator in react */}
-      {isActive ? (
+      if(isActive) {
         <p>Active Student</p>
-      ) : (
+      } else {
         <p>Inactive Student</p>
-      )}
+      }
 
       {/* demonstrating and operator in react */}
       {isActive && <p>Welcome to the course!</p>}
