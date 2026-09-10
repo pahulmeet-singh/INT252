@@ -1,6 +1,6 @@
 function StudentList({ students, onSelectStudent }) {
     return(
-        <div className="flex flex-col gap-4">
+        <div>
             <h2>Students</h2>
             {students.map((student) => (        
                 <button
