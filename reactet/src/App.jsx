@@ -210,6 +210,57 @@
 
 
 // lifting state up in component hierarchies
+// import {useState} from 'react';
+// import StudentList from './components/StudentList';
+// import StudentDetails from './components/StudentDetails';
+// function App() {
+//   const students=[
+//     {
+//       id:1,
+//       name:"Pahul",
+//       course:"CSE",
+//       rollNo:"101"  
+//     },
+//     {
+//       id:2,
+//       name:"John Doe",
+//       course:"ECE",
+//       rollNo:"102",
+//     },
+//     {
+//       id:3,
+//       name:"Jane Smith",
+//       course:"ME",
+//       rollNo:"103",
+//     },
+//   ];
+
+//   const [selectedStudent, setSelectedStudent] = useState(null);
+//   return (
+//     <div>
+//       <h1>Student Dashboard</h1>
+//       <StudentList 
+//         students={students} 
+//         onSelectStudent={setSelectedStudent} 
+//       />
+//       <StudentDetails student={selectedStudent} />
+//     </div>
+//   )
+// }
+// export default App;
+
+// components are reusable pieces of code that can be used to build the UI of a React application. 
+// They can be functional components or class components.
+// Functional components are simpler and are recommended for most use cases. They can accept props and return JSX to render the UI. 
+// Class components are more complex and have additional features like state and lifecycle methods, but they are less commonly used in modern React development.
+
+//the reason we have only one index.html file in the public folder is because React applications are single-page applications (SPAs). In an SPA, the entire application is loaded into a single HTML page, and React handles the rendering of different components and views dynamically without requiring multiple HTML files. The index.html file serves as the entry point for the React application, and React takes care of updating the content on the page based on user interactions and state changes. This approach allows for a smoother user experience and faster navigation within the application.
+
+
+// ---------------------------------------------------------------------------------------------
+
+// TAILWIND CSS
+
 import {useState} from 'react';
 import StudentList from './components/StudentList';
 import StudentDetails from './components/StudentDetails';
@@ -238,7 +289,12 @@ function App() {
   const [selectedStudent, setSelectedStudent] = useState(null);
   return (
     <div>
-      <h1>Student Dashboard</h1>
+      <div className="bg-purple-500 px-10 py-5 mb-8 rounded-xl text-center">
+        <h1 className="text-white text-5xl font-bold m-0">
+          Curation for the Pallete
+        </h1>
+      </div>
+      <h1> Student Dashboard</h1>
       <StudentList 
         students={students} 
         onSelectStudent={setSelectedStudent} 
@@ -248,10 +304,3 @@ function App() {
   )
 }
 export default App;
-
-// components are reusable pieces of code that can be used to build the UI of a React application. 
-// They can be functional components or class components.
-// Functional components are simpler and are recommended for most use cases. They can accept props and return JSX to render the UI. 
-// Class components are more complex and have additional features like state and lifecycle methods, but they are less commonly used in modern React development.
-
-//the reason we have only one index.html file in the public folder is because React applications are single-page applications (SPAs). In an SPA, the entire application is loaded into a single HTML page, and React handles the rendering of different components and views dynamically without requiring multiple HTML files. The index.html file serves as the entry point for the React application, and React takes care of updating the content on the page based on user interactions and state changes. This approach allows for a smoother user experience and faster navigation within the application.
