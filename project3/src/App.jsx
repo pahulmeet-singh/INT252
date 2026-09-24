@@ -23,10 +23,16 @@ function App(){
           Hover over this paragraph.
         </p>
       </div>
+
       <form onSubmit={handleSubmit}>
       <input type="text" onChange={handleInputChange} placeholder="Type something..." />
-      <button type="submit">Submit</button>
+      <button type="submit">Submit Form</button>
       </form>
+
+      <button onClick={handleSubmit} >
+        Submit Button
+      </button>
+
     </div>
   )
 }
