@@ -10,9 +10,11 @@ function App(){
       <button onClick={handleClick}>
         Clickme
       </button>
-      <p onMouseOver={handleMouseOver}>
-        Hover over this paragraph.
-      </p>
+      <div>
+        <p onMouseOver={handleMouseOver}>
+          Hover over this paragraph.
+        </p>
+      </div>
     </div>
   )
 }
