@@ -29,7 +29,7 @@ function App(){
       <button type="submit">Submit Form</button>
       </form>
 
-      <button onClick={() => alert("Button Clicked")} >
+      <button onClick={() => alert("Button Clicked. Arrow function alert")} >
         Submit Button
       </button>
 
