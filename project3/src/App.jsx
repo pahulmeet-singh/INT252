@@ -1,23 +1,23 @@
 function App(){
-  // function handleClick(){
-  //   alert("Button Clicked");
-  // }
-  // function handleMouseOver(){
-  //   alert("Mouse Over");
-  // }
+  function handleClick(){
+    alert("Button Clicked");
+  }
+  function handleMouseOver(){
+    alert("Mouse Over");
+  }
   function handleInputChange(event){
     console.log("Value changed: ", event.target.value);
   }
   return(
     <div>
-      {/* <button onClick={handleClick}>
+      <button onClick={handleClick}>
         Clickme
       </button>
       <div className={'text-center'}>
         <p onMouseOver={handleMouseOver}>
           Hover over this paragraph.
         </p>
-      </div> */}
+      </div>
 
       <input type="text" onChange={handleInputChange} placeholder="Type something..." />
     </div>
