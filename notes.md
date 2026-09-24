@@ -77,6 +77,7 @@ lec 4 - 24 august
 ## shallow copy and deep copy
 
 - A shallow copy creates a new object or array that references the same memory location as the original object or array. This means that if you modify the shallow copy, the changes will also affect the original object or array.
+- A shallow copy is a new top-level object whose nested objects are still shared.
 
 - A deep copy creates a new object or array that is completely independent of the original object or array. This means that if you modify the deep copy, the changes will not affect the original object or array.
 
@@ -87,8 +88,8 @@ lec 4 - 24 august
 
 ### SPA coupling vs MPA coupling
 
-- SPA coupling refers to the tight integration of components and modules within a single-page application. Changes in one part of the application can affect other parts, making it more challenging to maintain and scale.
-- MPA coupling refers to the loose integration of separate pages in a multi-page application. The frontend and backend are more interdependent. All coding is usually housed under one project, making it easier to maintain and scale.
+- SPA coupling refers to the relatively tighter coupling between components and modules within a single-page application. Since different parts of the application share state, routing, and dependencies, changes in one component can sometimes affect other parts, making large SPAs more challenging to maintain and scale.
+- MPA coupling refers to the relatively looser coupling between separate pages in a multi-page application. Each page is generally rendered and handled independently, so changes to one page are less likely to directly affect other pages. This can make individual pages easier to maintain and develop independently.
 
 ### what is seo and how it works
 
