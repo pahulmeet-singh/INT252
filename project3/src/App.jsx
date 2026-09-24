@@ -10,7 +10,7 @@ function App(){
       <button onClick={handleClick}>
         Clickme
       </button>
-      <div>
+      <div className={'text-center'}>
         <p onMouseOver={handleMouseOver}>
           Hover over this paragraph.
         </p>
@@ -19,3 +19,6 @@ function App(){
   )
 }
 export default App;
+
+//tailwind css to center a paragraph in the middle of the page: text-center
+// and to center a button in the middle of the page: flex justify-center items-center
