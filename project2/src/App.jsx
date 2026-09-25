@@ -1,4 +1,3 @@
-
 import Hero from './components/Hero'
 import Team from './components/Team'
 import Testimonials from './components/Testimonials'
