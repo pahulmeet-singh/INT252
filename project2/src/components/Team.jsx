@@ -23,6 +23,7 @@ function TeamCard({ initials, name, role, color }) {
       {/* circle avatar: grid + place-items-center = centers the initials both ways */}
       <div className={`grid h-28 w-28 place-items-center rounded-full text-3xl font-bold text-white ${color}`}>
         {initials}
+        
       </div>
       <h3 className="mt-5 text-base font-bold text-slate-700">{name}</h3>
       <p className="mt-1 text-xs font-semibold text-amber-700">{role}</p>
