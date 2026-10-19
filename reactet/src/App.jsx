@@ -261,45 +261,57 @@
 
 // TAILWIND CSS
 
-import {useState} from 'react';
-import StudentList from './components/StudentList';
-import StudentDetails from './components/StudentDetails';
-function App() {
-  const students=[
-    {
-      id:1,
-      name:"Pahul",
-      course:"CSE",
-      rollNo:"101"  
-    },
-    {
-      id:2,
-      name:"John Doe",
-      course:"ECE",
-      rollNo:"102",
-    },
-    {
-      id:3,
-      name:"Jane Smith",
-      course:"ME",
-      rollNo:"103",
-    },
-  ];
+// import {useState} from 'react';
+// import StudentList from './components/StudentList';
+// import StudentDetails from './components/StudentDetails';
+// function App() {
+//   const students=[
+//     {
+//       id:1,
+//       name:"Pahul",
+//       course:"CSE",
+//       rollNo:"101"  
+//     },
+//     {
+//       id:2,
+//       name:"John Doe",
+//       course:"ECE",
+//       rollNo:"102",
+//     },
+//     {
+//       id:3,
+//       name:"Jane Smith",
+//       course:"ME",
+//       rollNo:"103",
+//     },
+//   ];
 
-  const [selectedStudent, setSelectedStudent] = useState(null);
+//   const [selectedStudent, setSelectedStudent] = useState(null);
+//   return (
+//     <div>
+//       <div className="bg-purple-500 px-10 py-5 mb-8 rounded-xl text-center">
+//         <h1 className="text-white text-5xl font-bold m-0">
+//           Curation for the Pallete
+//         </h1>
+//       </div>
+//       <h1> Student Dashboard</h1>
+//       <StudentList 
+//         students={students} 
+//         onSelectStudent={setSelectedStudent} 
+//       />
+//       <StudentDetails student={selectedStudent} />
+//     </div>
+//   )
+// }
+// export default App;
+
+
+// to run counter component.
+import Counter from './components/Counter';
+function App() {
   return (
     <div>
-      <div className="bg-purple-500 px-10 py-5 mb-8 rounded-xl text-center">
-        <h1 className="text-white text-5xl font-bold m-0">
-          Curation for the Pallete
-        </h1>
-      </div>
-      <h1> Student Dashboard</h1>
-      <StudentList 
-        students={students} 
-        onSelectStudent={setSelectedStudent} 
-      />
-      <StudentDetails student={selectedStudent} />
+      <Counter />
     </div>
   )
 }
