@@ -306,6 +306,11 @@
 // export default App;
 
 
+
+
+
+
+
 // // to run counter component.
 // import Counter from './components/Counter';
 // function App() {
@@ -317,25 +322,67 @@
 // }
 // export default App;
 
-import {memo, useState} from 'react';
-const Child = memo(function Child(){
-    console.log("Child Rendered");
+
+
+
+
+// // using memo to optimize re-rendering of child component in react
+// import {memo, useState} from 'react';
+// const Child = memo(function Child(){
+//     console.log("Child Rendered");
+//     return(
+//         <div>
+//             <h1>Child Component</h1>
+//         </div>
+//     )
+// });
+// function App() {
+//   const [count,setCount] = useState(0);
+//   console.log("App(parent) Rendered");
+//   return (
+//     <div>
+//       <h1>Re-rendered optimized</h1>
+//       <h2>Count: {count}</h2>
+//       <button onClick={()=>setCount(count + 1)}>Increment</button>
+//       <Child />
+//     </div>
+//   )
+// }
+// export default App;
+
+
+
+
+
+// Derived State
+// calculating marks and percentage using useState hook in react
+import {useState} from 'react';
+function App(){
+    const [marks, setMarks] = useState(80);
+    // here 80 is the initial state of marks. It can be any number or value you want to start with.
+    const totalMarks = 100;
+    const percentage = (marks / totalMarks) * 100;
     return(
         <div>
-            <h1>Child Component</h1>
+          <h1>Derived State</h1>
+          <label>
+            Enter Marks;
+            <input
+              type="number"
+              min="0"
+              max={totalMarks}
+              value={marks}
+              onChange={(event) => {
+                const value=Number(event.target.value);
+                if(value >= 0 && value <= totalMarks){
+                  setMarks(value);
+                }
+              }}
+            />
+          </label>
+          <h2>Marks: {marks}</h2>
+          <h2>Percentage: {percentage}%</h2>
         </div>
     )
-});
-function App() {
-  const [count,setCount] = useState(0);
-  console.log("App(parent) Rendered");
-  return (
-    <div>
-      <h1>Re-rendered optimized</h1>
-      <h2>Count: {count}</h2>
-      <button onClick={()=>setCount(count + 1)}>Increment</button>
-      <Child />
-    </div>
-  )
 }
 export default App;
