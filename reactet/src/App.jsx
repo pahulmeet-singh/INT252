@@ -306,12 +306,35 @@
 // export default App;
 
 
-// to run counter component.
-import Counter from './components/Counter';
+// // to run counter component.
+// import Counter from './components/Counter';
+// function App() {
+//   return (
+//     <div>
+//       <Counter />
+//     </div>
+//   )
+// }
+// export default App;
+
+import {useState} from 'react';
+function Child(){
+    console.log("Child Rendered");
+    return(
+        <div>
+            <h1>Child Component</h1>
+        </div>
+    )
+}
 function App() {
+  const [count,setCount] = useState(0);
+  console.log("App(parent) Rendered");
   return (
     <div>
-      <Counter />
+      <h1>Re-rendered</h1>
+      <h2>Count: {count}</h2>
+      <button onClick={()=>setCount(count + 1)}>Increment</button>
+      <Child />
     </div>
   )
 }
