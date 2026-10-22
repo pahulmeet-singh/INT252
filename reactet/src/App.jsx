@@ -327,71 +327,27 @@
 
 
 // // using memo to optimize re-rendering of child component in react
-// import {memo, useState} from 'react';
-// const Child = memo(function Child(){
-//     console.log("Child Rendered");
-//     return(
-//         <div>
-//             <h1>Child Component</h1>
-//         </div>
-//     )
-// });
-// function App() {
-//   const [count,setCount] = useState(0);
-//   console.log("App(parent) Rendered");
-//   return (
-//     <div>
-//       <h1>Re-rendered optimized</h1>
-//       <h2>Count: {count}</h2>
-//       <button onClick={()=>setCount(count + 1)}>Increment</button>
-//       <Child />
-//     </div>
-//   )
-// }
-// export default App;
-
-
-
-
-
-// Derived State
-// calculating marks and percentage using useState hook in react
-import {useState} from 'react';
-function App(){
-    const [marks, setMarks] = useState(80);
-    // here 80 is the initial state of marks. It can be any number or value you want to start with.
-    const totalMarks = 100;
-    const percentage = (marks / totalMarks) * 100;
+import {memo, useState} from 'react';
+const Child = memo(function Child(){
+    console.log("Child Rendered");
     return(
         <div>
-          <h1>Derived State</h1>
-          <label>
-            Enter Marks: 
-            <input
-              type="number"
-              min="0"
-              max={totalMarks}
-              value={marks}
-              onChange={(event) => {
-                const value=Number(event.target.value);
-                if(value >= 0 && value <= totalMarks){
-                  setMarks(value);
-                }
-              }}
-            />
-          </label>
-          <h2>Marks: {marks}</h2>
-          <h2>Percentage: {percentage}%</h2>
+            <h1>Child Component</h1>
         </div>
     )
+});
+function App() {
+  const [count,setCount] = useState(0);
+  console.log("App(parent) Rendered");
+  return (
+    <div>
+      <h1>Re-rendered optimized</h1>
+      <h2>Count: {count}</h2>
+      <button onClick={()=>setCount(count + 1)}>Increment</button>
+      <Child />
+    </div>
+  )
 }
 export default App;
 
 
-
-// what is useState?
-// The `useState` hook is a built-in function in React that allows you to add state management to functional components. It enables you to create and manage state variables within your component, allowing the component to remember values between renders and respond to user interactions or other events.
-// When you call `useState`, it returns an array with two elements: the current state value and a function to update that state. You can use the state value in your component's rendering logic, and when you call the update function, React will re-render the component with the new state value.
-
-//use of sideeffects in useeffect?
-// The `useEffect` hook is used to handle side effects in functional components. It allows you to perform operations that have side effects, such as fetching data from an API, manipulating the DOM, setting up subscriptions, or performing timers. You can specify dependencies for the effect, which determines when it should run. This helps keep your components clean and focused on rendering while managing side effects in a controlled manner.
