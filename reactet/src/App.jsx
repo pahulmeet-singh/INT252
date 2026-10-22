@@ -386,3 +386,10 @@ function App(){
     )
 }
 export default App;
+
+
+// what is usestate?
+// The `useState` hook is a built-in function in React that allows you to add state management to functional components. It enables you to create and manage state variables within your component, allowing the component to remember values between renders and respond to user interactions or other events.
+
+// When you call `useState`, it returns an array with two elements: the current state value and a function to update that state. You can use the state value in your component's rendering logic, and when you call the update function, React will re-render the component with the new state value.
+
