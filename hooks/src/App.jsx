@@ -177,7 +177,19 @@ function App(){
       <button onClick={()=>setCount(count+1)}>
         Increase
       </button>
-      
+      <div>
+        Count:{count}
+      </div>
+      <input
+      type="number"
+      placeholder="enter number"
+      value={input}
+      onChange={(e)=>setInput(e.target.value)}
+      />
+      <div>
+        Double:{doubleValue}
+      </div>
     </div>
   )
 }
+export default App;
