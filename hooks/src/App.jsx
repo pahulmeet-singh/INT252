@@ -168,7 +168,7 @@ function App(){
 
   function expensiveTask(num){
     console.log("Inside Expensive Task")
-    for(let i=0;i<=10000000000;i++){}
+    for(let i=0;i<=1000000;i++){}
     return num*2
   }
   let doubleValue=useMemo(()=>expensiveTask(input),[input])
