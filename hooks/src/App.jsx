@@ -171,7 +171,7 @@ function App(){
     for(let i=0;i<=10000000000;i++){}
     return num*2
   }
-  let doubleValue=expensiveTask(input)
+  let doubleValue=useMemo(()=>expensiveTask(input),[input])
   return(
     <div>
       <button onClick={()=>setCount(count+1)}>
