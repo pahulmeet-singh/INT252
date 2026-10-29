@@ -123,19 +123,61 @@
 
 
 
-import { createContext, useState } from 'react';
-import ChildA from './components/ChildA';
+// import { createContext, useState } from 'react';
+// import ChildA from './components/ChildA';
 
-const UserContext = createContext();
-function App() {
-  const [user, setUser] = useState({ name: 'John' });
+// const UserContext = createContext();
+// function App() {
+//   const [user, setUser] = useState({ name: 'John' });
+//   return(
+//     <>
+//     <UserContext.Provider value={ user }>
+//       <ChildA />
+//     </UserContext.Provider>
+//     </>
+//   )
+// }
+// export default App;
+// export { UserContext };
+
+
+// what is useState and useEffect
+// `useState` is a React hook that allows you to add state to functional components. 
+//  It returns an array with two elements: the current state value and a function to update that state.
+// `useEffect` is a React hook that allows you to perform side effects in functional components. 
+//  It runs after the component has rendered and can be used to fetch data, set up subscriptions, or perform other operations that have side effects.
+
+
+// what is memoization in react?
+// Memoization in React is an optimization technique that helps to improve the performance of functional components by caching the results of expensive function calls and returning the cached result when the same inputs occur again. This prevents unnecessary re-renders and computations, especially for components that receive the same props or state values frequently. React provides hooks like `React.memo` for components and `useMemo` for values to implement memoization effectively.
+// what is useMemo in react?
+// `useMemo` is a React hook that allows you to memoize the result of a computation or function call, so that it is only recalculated when its dependencies change. It helps optimize performance by preventing unnecessary recalculations of expensive operations during re-renders. You can use `useMemo` to cache values that are derived from props or state, ensuring that they are only recomputed when necessary.
+
+
+
+
+
+
+
+
+
+import {useState,useMemo} from "react"
+function App(){
+  const[count,setCount]=useState(0)
+  const[input,setInput]=useState(0)
+
+  function expensiveTask(num){
+    console.log("Inside Expensive Task")
+    for(let i=0;i<=10000000000;i++){}
+    return num*2
+  }
+  let doubleValue=expensiveTask(input)
   return(
-    <>
-    <UserContext.Provider value={ user }>
-      <ChildA />
-    </UserContext.Provider>
-    </>
+    <div>
+      <button onClick={()=>setCount(count+1)}>
+        Increase
+      </button>
+      
+    </div>
   )
 }
-export default App;
-export { UserContext };
