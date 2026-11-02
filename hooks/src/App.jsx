@@ -202,26 +202,46 @@
 
 
 
-import {useState,useCallback} from "react"
-import StudentCard from "./components/StudentCard"
+// import {useState,useCallback} from "react"
+// import StudentCard from "./components/StudentCard"
+// function App(){
+//   const [count,setCount]=useState(0)
+//   const handleView=useCallback(()=>{
+//     console.log("Viewing Student details")
+//   },[])
+//   return(
+//     <div>
+//       <h1>
+//         Student Dashboard
+//       </h1>
+//       <h2> Counter: {count}</h2>
+//       <button onClick={()=>setCount(count+1)}>
+//         Increase Count
+//       </button>
+//       <hr/>
+//       <StudentCard name="John Doe" onView={handleView}/>
+//       <StudentCard name="Jane Smith" onView={handleView}/>
+//       <StudentCard name="Alice Json" onView={handleView}/>
+//     </div>
+//   )
+// }
+// export default App
+
+
+
+
+
+
+
+import CounterOne from "./CounterOne";
+import CounterTwo from "./CounterTwo";
+
 function App(){
-  const [count,setCount]=useState(0)
-  const handleView=useCallback(()=>{
-    console.log("Viewing Student details")
-  },[])
   return(
     <div>
-      <h1>
-        Student Dashboard
-      </h1>
-      <h2> Counter: {count}</h2>
-      <button onClick={()=>setCount(count+1)}>
-        Increase Count
-      </button>
+      <CounterOne/>
       <hr/>
-      <StudentCard name="John Doe" onView={handleView}/>
-      <StudentCard name="Jane Smith" onView={handleView}/>
-      <StudentCard name="Alice Json" onView={handleView}/>
+      <CounterTwo/>
     </div>
   )
 }
