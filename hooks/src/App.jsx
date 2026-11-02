@@ -202,13 +202,13 @@
 
 
 
-import {useState} from "react"
+import {useState,useCallback} from "react"
 import StudentCard from "./components/StudentCard"
 function App(){
   const [count,setCount]=useState(0)
-  const handleView=()=>{
+  const handleView=useCallback(()=>{
     console.log("Viewing Student details")
-  }
+  },[])
   return(
     <div>
       <h1>
