@@ -263,12 +263,18 @@ function App(){
   }
   return(
     <div>
+      <h1> Controlled </h1>
+      <label htmlFor="studentName">
+        Name:
+      </label>
       <input
+        id="studentName"
         type="text"
-        placeholder="Enter your name"
         value={name}
         onChange={handleChange}
+        placeholder="Enter your name"
       />
+      <p>Hello, {name}</p>
     </div>
   )
 }
