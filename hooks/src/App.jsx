@@ -255,26 +255,61 @@
 
 
 
-import {useState} from "react"
+// import {useState} from "react"
+// function App(){
+//   const[name,setName]=useState("")
+//   function handleChange(e){
+//     setName(e.target.value)
+//   }
+//   return(
+//     <div>
+//       <h1> Controlled </h1>
+//       <label htmlFor="studentName">
+//         Name:
+//       </label>
+//       <input
+//         id="studentName"
+//         type="text"
+//         value={name}
+//         onChange={handleChange}
+//         placeholder="Enter your name"
+//       />
+//       <p>Hello, {name}</p>
+//     </div>
+//   )
+// }
+// export default App
+
+
+
+
+
+
+
+
+
+import {useRef} from "react"
 function App(){
-  const[name,setName]=useState("")
-  function handleChange(e){
-    setName(e.target.value)
+  const nameRef=useRef(null)
+  function handleSubmit(e){
+    e.preventDefault()
+    alert("Student Name: " + nameRef.current.value)
   }
   return(
     <div>
-      <h1> Controlled </h1>
+      <h1> UnControlled </h1>
+      <form onSubmit={handleSubmit}>
       <label htmlFor="studentName">
         Name:
       </label>
       <input
         id="studentName"
         type="text"
-        value={name}
-        onChange={handleChange}
+        ref={nameRef}
         placeholder="Enter your name"
       />
-      <p>Hello, {name}</p>
+      <button type="submit">Submit</button>
+      </form>
     </div>
   )
 }
