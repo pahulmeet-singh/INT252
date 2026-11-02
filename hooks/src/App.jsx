@@ -161,35 +161,68 @@
 
 
 
-import {useState,useMemo} from "react"
-function App(){
-  const[count,setCount]=useState(0)
-  const[input,setInput]=useState(0)
+// import {useState,useMemo} from "react"
+// function App(){
+//   const[count,setCount]=useState(0)
+//   const[input,setInput]=useState(0)
 
-  function expensiveTask(num){
-    console.log("Inside Expensive Task")
-    for(let i=0;i<=1000000;i++){}
-    return num*2
+//   function expensiveTask(num){
+//     console.log("Inside Expensive Task")
+//     for(let i=0;i<=1000000;i++){}
+//     return num*2
+//   }
+//   let doubleValue=useMemo(()=>expensiveTask(input),[input])
+//   return(
+//     <div>
+//       <button onClick={()=>setCount(count+1)}>
+//         Increase
+//       </button>
+//       <div>
+//         Count:{count}
+//       </div>
+//       <input
+//       type="number"
+//       placeholder="enter number"
+//       value={input}
+//       onChange={(e)=>setInput(e.target.value)}
+//       />
+//       <div>
+//         Double:{doubleValue}
+//       </div>
+//     </div>
+//   )
+// }
+// export default App;
+
+
+
+
+
+
+
+
+
+import {useState} from "react"
+import StudentCard from "./components/StudentCard"
+function App(){
+  const [count,setCount]=useState(0)
+  const handleView=()=>{
+    console.log("Viewing Student details")
   }
-  let doubleValue=useMemo(()=>expensiveTask(input),[input])
   return(
     <div>
+      <h1>
+        Student Dashboard
+      </h1>
+      <h2> Counter: {count}</h2>
       <button onClick={()=>setCount(count+1)}>
-        Increase
+        Increase Count
       </button>
-      <div>
-        Count:{count}
-      </div>
-      <input
-      type="number"
-      placeholder="enter number"
-      value={input}
-      onChange={(e)=>setInput(e.target.value)}
-      />
-      <div>
-        Double:{doubleValue}
-      </div>
+      <hr/>
+      <StudentCard name="John Doe" onView={handleView}/>
+      <StudentCard name="Jane Smith" onView={handleView}/>
+      <StudentCard name="Alice Johnson" onView={handleView}/>
     </div>
   )
 }
-export default App;
+export default App
