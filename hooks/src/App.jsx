@@ -255,3 +255,21 @@
 
 
 
+import {useState} from "react"
+function App(){
+  const[name,setName]=useState("")
+  function handleChange(e){
+    setName(e.target.value)
+  }
+  return(
+    <div>
+      <input
+        type="text"
+        placeholder="Enter your name"
+        value={name}
+        onChange={handleChange}
+      />
+    </div>
+  )
+}
+export default App
