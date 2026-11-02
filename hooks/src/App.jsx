@@ -288,6 +288,41 @@
 
 
 
+// import {useRef} from "react"
+// function App(){
+//   const nameRef=useRef(null)
+//   function handleSubmit(e){
+//     e.preventDefault()
+//     alert("Student Name: " + nameRef.current.value)
+//   }
+//   return(
+//     <div>
+//       <h1> UnControlled </h1>
+//       <form onSubmit={handleSubmit}>
+//       <label htmlFor="studentName">
+//         Name:
+//       </label>
+//       <input
+//         id="studentName"
+//         type="text"
+//         ref={nameRef}
+//         placeholder="Enter your name"
+//       />
+//       <button type="submit">Submit</button>
+//       </form>
+//     </div>
+//   )
+// }
+// export default App
+
+
+
+
+
+
+
+
+
 import {useRef} from "react"
 function App(){
   const nameRef=useRef(null)
