@@ -221,7 +221,7 @@ function App(){
       <hr/>
       <StudentCard name="John Doe" onView={handleView}/>
       <StudentCard name="Jane Smith" onView={handleView}/>
-      <StudentCard name="Alice Johnson" onView={handleView}/>
+      <StudentCard name="Alice Json" onView={handleView}/>
     </div>
   )
 }
