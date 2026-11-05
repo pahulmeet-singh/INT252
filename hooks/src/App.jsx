@@ -796,68 +796,135 @@
 
 
 //pattern 5 with input field
+// import { useState } from "react";
+// import InputField from "./components/InputField";
+
+// function App() {
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     email: "",
+//     password: ""
+//   });
+
+//   function handleChange(event) {
+//     const { name, value } = event.target;
+
+//     setFormData((prev) => ({
+//       ...prev,
+//       [name]: value
+//     }));
+//   }
+
+//   function handleSubmit(event) {
+//     event.preventDefault();
+
+//     alert("Registration completed for " + formData.name);
+//   }
+
+//   return (
+//     <div>
+//       <h1>Student Registration</h1>
+
+//       <form onSubmit={handleSubmit}>
+//         <InputField
+//           label="Student Name"
+//           name="name"
+//           value={formData.name}
+//           onChange={handleChange}
+//           placeholder="Enter your name"
+//         />
+
+//         <InputField
+//           label="Email Address"
+//           type="email"
+//           name="email"
+//           value={formData.email}
+//           onChange={handleChange}
+//           placeholder="Enter your email"
+//         />
+
+//         <InputField
+//           label="Password"
+//           type="password"
+//           name="password"
+//           value={formData.password}
+//           onChange={handleChange}
+//           placeholder="Enter your password"
+//         />
+
+//         <button type="submit">
+//           Register
+//         </button>
+//       </form>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+//patter 6 conditional rendering of success message
 import { useState } from "react";
-import InputField from "./components/InputField";
 
 function App() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: ""
-  });
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-  }
-
+  const [course, setCourse] = useState("");
+  const[submitted, setSubmitted] = useState(false);
+  const[password, setPassword] = useState("");
+  const[showPassword, setShowPassword] = useState(false);
+  
   function handleSubmit(event) {
     event.preventDefault();
-
-    alert("Registration completed for " + formData.name);
+    setSubmitted(true);
   }
 
-  return (
+  return(
     <div>
       <h1>Student Registration</h1>
 
+
       <form onSubmit={handleSubmit}>
-        <InputField
-          label="Student Name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Enter your name"
-        />
+        <label> Select Course: </label>
+        <select
+          value={course}
+          onChange={(e) => setCourse(e.target.value)}
+        >
+          <option value="">Select a course</option>
+          <option value="React">React</option>
+          <option value="Node.js">Node.js</option>
+          <option value="Python">Python</option>
+        </select>
 
-        <InputField
-          label="Email Address"
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Enter your email"
-        />
+        <br/><br/>
 
-        <InputField
-          label="Password"
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
+        <label> Password: </label>
+        <input
+          type={showPassword ? "text" : "password"}
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
           placeholder="Enter your password"
         />
-
-        <button type="submit">
-          Register
+        <button
+          type="button"
+          onClick={() => setShowPassword(!showPassword)}
+        >
+          {showPassword ? "Hide" : "Show"} Password
         </button>
+
+        <br/><br/>
+
+        <button type="submit">Submit</button>
+
+        {submitted && (
+          <p>Registration completed for {course}</p>
+        )}
       </form>
     </div>
-  );
+  )
 }
-
-export default App;
