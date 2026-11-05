@@ -445,88 +445,194 @@
 
 
 
-import {useState} from "react"
-function App(){
+// import {useState} from "react"
+// function App(){
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     email: "",
+//     course: "",
+//     gender: ""
+//   })
+
+//   function handleChange(e) {
+//     const { name, value } = e.target
+//     setFormData((prev) => ({
+//       ...prev,
+//       [name]: value,
+//     }))
+//   }
+
+//   function handleSubmit(e) {
+//     e.preventDefault()
+
+//     alert(JSON.stringify(formData, null, 2))
+//   }
+
+//   return(
+//     <div>
+//       <h1> Student Registration</h1>
+
+//       <form onSubmit={handleChange}>
+//         <label> Student Name:</label>
+//         <input
+//           type="text"
+//           value={formData.name}
+//           onChange={handleChange}
+//           placeholder="Enter your name"
+//         />
+
+//         <br/><br/>
+
+//         <label> Email:</label>
+//         <input
+//           type="email"
+//           value={formData.email}
+//           onChange={handleChange}
+//           placeholder="Enter your email"
+//         />
+
+//         <br/><br/>
+
+//         <label> Course:</label>
+//         <select
+//           value={formData.course}
+//           onChange={handleChange}
+//         >
+//           <option value="">Select a course</option>
+//           <option value="React">React</option>
+//           <option value="Node.js">Node.js</option>
+//           <option value="Python">Python</option>
+//         </select>
+
+//         <br/><br/>
+//         <label> Gender:</label>
+//         <input
+//           type="radio"
+//           name="gender"
+//           value="Male"
+//           checked={formData.gender === "Male"}
+//           onChange={handleChange}
+//         /> Male
+
+//         <input
+//           type="radio"
+//           name="gender"
+//           value="Female"
+//           checked={formData.gender === "Female"}
+//           onChange={handleChange}
+//         /> Female
+
+//         <br/><br/>
+
+//         <button onClick={handleSubmit} type="submit">Submit</button>
+//       </form>
+//     </div>
+//   )
+// }
+// export default App
+
+
+
+
+
+
+
+
+
+//pattern3 form state with validation and errors
+import { useState } from "react";
+
+function App() {
   const [formData, setFormData] = useState({
     name: "",
-    email: "",
-    course: "",
-    gender: ""
-  })
+    email: ""
+  });
 
-  function handleChange(e) {
-    const { name, value } = e.target
+  const [errors, setErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+
     setFormData((prev) => ({
       ...prev,
-      [name]: value,
-    }))
+      [name]: value
+    }));
+
+    // Clear the success message when editing
+    setSubmitted(false);
   }
 
-  function handleSubmit(e) {
-    e.preventDefault()
+  function validateForm() {
+    const newErrors = {};
 
-    alert(JSON.stringify(formData, null, 2))
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Enter a valid email";
+    }
+
+    return newErrors;
   }
 
-  return(
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const newErrors = validateForm();
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      setSubmitted(true);
+      console.log("Form submitted:", formData);
+    } else {
+      setSubmitted(false);
+    }
+  }
+
+  return (
     <div>
-      <h1> Student Registration</h1>
+      <h1>Registration with Validation</h1>
 
-      <form onSubmit={handleChange}>
-        <label> Student Name:</label>
-        <input
-          type="text"
-          value={formData.name}
-          onChange={(e) => setFormData((prev) => ({...prev, name: e.target.value}))}
-          placeholder="Enter your name"
-        />
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Student Name:</label>
+          <input
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Enter name"
+          />
 
-        <br/><br/>
+          {errors.name && <p>{errors.name}</p>}
+        </div>
 
-        <label> Email:</label>
-        <input
-          type="email"
-          value={formData.email}
-          onChange={(e) => setFormData((prev) => ({...prev, email: e.target.value}))}
-          placeholder="Enter your email"
-        />
+        <br />
 
-        <br/><br/>
+        <div>
+          <label>Email:</label>
+          <input
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Enter email"
+          />
 
-        <label> Course:</label>
-        <select
-          value={formData.course}
-          onChange={(e) => setFormData((prev) => ({...prev, course: e.target.value}))}
-        >
-          <option value="">Select a course</option>
-          <option value="React">React</option>
-          <option value="Node.js">Node.js</option>
-          <option value="Python">Python</option>
-        </select>
+          {errors.email && <p>{errors.email}</p>}
+        </div>
 
-        <br/><br/>
-        <label> Gender:</label>
-        <input
-          type="radio"
-          name="gender"
-          value="Male"
-          checked={formData.gender === "Male"}
-          onChange={(e) => setFormData((prev) => ({...prev, gender: e.target.value}))}
-        /> Male
+        <br />
 
-        <input
-          type="radio"
-          name="gender"
-          value="Female"
-          checked={formData.gender === "Female"}
-          onChange={(e) => setFormData((prev) => ({...prev, gender: e.target.value}))}
-        /> Female
-
-        <br/><br/>
-
-        <button onClick={handleSubmit} type="submit">Submit</button>
+        <button type="submit">Submit</button>
       </form>
+
+      {submitted && (
+        <p>Form submitted successfully!</p>
+      )}
     </div>
-  )
+  );
 }
-export default App
+
+export default App;
