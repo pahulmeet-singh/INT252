@@ -358,33 +358,173 @@
 
 
 
+// import {useState} from "react"
+// function App(){
+//   const [name,setName]=useState("")
+//   const [email,setEmail]=useState("")
+//   const[course,setCourse]=useState("")
+//   const[gender,setGender]=useState("")
+
+//   function handleSubmit(e){
+//     e.preventDefault()
+
+//     alert(
+//       "Name: " + name + "\n" +
+//       "Email: " + email + "\n" +
+//       "Course: " + course
+//     )
+//   }
+//   return(
+//     <div>
+//       <h1> Student Registration</h1>
+
+//       <form onSubmit={handleSubmit}>
+//         <label> Student Name:</label>
+//         <input
+//           type="text"
+//           value={name}
+//           onChange={(e) => setName(e.target.value)}
+//           placeholder="Enter your name"
+//         />
+
+//         <br/><br/>
+
+//         <label> Email:</label>
+//         <input
+//           type="email"
+//           value={email}
+//           onChange={(e) => setEmail(e.target.value)}
+//           placeholder="Enter your email"
+//         />
+
+//         <br/><br/>
+
+//         <label> Course:</label>
+//         <select
+//           value={course}
+//           onChange={(e) => setCourse(e.target.value)}
+//         >
+//           <option value="">Select a course</option>
+//           <option value="React">React</option>
+//           <option value="Node.js">Node.js</option>
+//           <option value="Python">Python</option>
+//         </select>
+
+//         <br/><br/>
+//         <label> Gender:</label>
+//         <input
+//           type="radio"
+//           name="gender"
+//           value="Male"
+//           checked={gender === "Male"}
+//           onChange={(e) => setGender(e.target.value)}
+//         /> Male
+
+//         <input
+//           type="radio"
+//           name="gender"
+//           value="Female"
+//           checked={gender === "Female"}
+//           onChange={(e) => setGender(e.target.value)}
+//         /> Female
+
+//         <br/><br/>
+
+//         <button type="submit">Submit</button>
+//       </form>
+//     </div>
+//   )
+// }
+// export default App
+
+
+
+
+
+
+
+
+
 import {useState} from "react"
 function App(){
-  const [name,setName]=useState("")
-  const [email,setEmail]=useState("")
-  const[course,setCourse]=useState("")
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    course: "",
+    gender: ""
+  })
 
-  function handleSubmit(e){
+  function handleChange(e) {
+    const { name, value } = e.target
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
+  function handleSubmit(e) {
     e.preventDefault()
 
-    alert(
-      "Name: " + name + "\n" +
-      "Email: " + email + "\n" +
-      "Course: " + course
-    )
+    alert(JSON.stringify(formData, null, 2))
   }
+
   return(
     <div>
       <h1> Student Registration</h1>
 
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleChange}>
         <label> Student Name:</label>
         <input
           type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+          value={formData.name}
+          onChange={(e) => setFormData((prev) => ({...prev, name: e.target.value}))}
           placeholder="Enter your name"
         />
+
+        <br/><br/>
+
+        <label> Email:</label>
+        <input
+          type="email"
+          value={formData.email}
+          onChange={(e) => setFormData((prev) => ({...prev, email: e.target.value}))}
+          placeholder="Enter your email"
+        />
+
+        <br/><br/>
+
+        <label> Course:</label>
+        <select
+          value={formData.course}
+          onChange={(e) => setFormData((prev) => ({...prev, course: e.target.value}))}
+        >
+          <option value="">Select a course</option>
+          <option value="React">React</option>
+          <option value="Node.js">Node.js</option>
+          <option value="Python">Python</option>
+        </select>
+
+        <br/><br/>
+        <label> Gender:</label>
+        <input
+          type="radio"
+          name="gender"
+          value="Male"
+          checked={formData.gender === "Male"}
+          onChange={(e) => setFormData((prev) => ({...prev, gender: e.target.value}))}
+        /> Male
+
+        <input
+          type="radio"
+          name="gender"
+          value="Female"
+          checked={formData.gender === "Female"}
+          onChange={(e) => setFormData((prev) => ({...prev, gender: e.target.value}))}
+        /> Female
+
+        <br/><br/>
+
+        <button onClick={handleSubmit} type="submit">Submit</button>
       </form>
     </div>
   )
