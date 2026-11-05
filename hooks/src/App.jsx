@@ -540,72 +540,214 @@
 
 
 //pattern3 form state with validation and errors
-import { useState } from "react";
+// import { useState } from "react";
+
+// function App() {
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     email: ""
+//   });
+
+//   const [errors, setErrors] = useState({});
+//   const [submitted, setSubmitted] = useState(false);
+
+//   function handleChange(event) {
+//     const { name, value } = event.target;
+
+//     setFormData((prev) => ({
+//       ...prev,
+//       [name]: value
+//     }));
+
+//     // Clear the success message when editing
+//     setSubmitted(false);
+//   }
+
+//   function validateForm() {
+//     const newErrors = {};
+
+//     if (!formData.name.trim()) {
+//       newErrors.name = "Name is required";
+//     }
+
+//     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+//       newErrors.email = "Enter a valid email";
+//     }
+
+//     return newErrors;
+//   }
+
+//   function handleSubmit(event) {
+//     event.preventDefault();
+
+//     const newErrors = validateForm();
+//     setErrors(newErrors);
+
+//     if (Object.keys(newErrors).length === 0) {
+//       setSubmitted(true);
+//       console.log("Form submitted:", formData);
+//     } else {
+//       setSubmitted(false);
+//     }
+//   }
+
+//   return (
+//     <div>
+//       <h1>Registration with Validation</h1>
+
+//       <form onSubmit={handleSubmit}>
+//         <div>
+//           <label>Student Name:</label>
+//           <input
+//             name="name"
+//             value={formData.name}
+//             onChange={handleChange}
+//             placeholder="Enter name"
+//           />
+
+//           {errors.name && <p>{errors.name}</p>}
+//         </div>
+
+//         <br />
+
+//         <div>
+//           <label>Email:</label>
+//           <input
+//             name="email"
+//             type="email"
+//             value={formData.email}
+//             onChange={handleChange}
+//             placeholder="Enter email"
+//           />
+
+//           {errors.email && <p>{errors.email}</p>}
+//         </div>
+
+//         <br />
+
+//         <button type="submit">Submit</button>
+//       </form>
+
+//       {submitted && (
+//         <p>Form submitted successfully!</p>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+// pattern 4 with useReducer hook
+import { useReducer } from "react";
+
+const initialState = {
+  name: "",
+  email: "",
+  errors: {},
+  submitted: false
+};
+
+function formReducer(state, action) {
+  switch (action.type) {
+    case "CHANGE":
+      return {
+        ...state,
+        [action.name]: action.value,
+        submitted: false
+      };
+
+    case "SET_ERRORS":
+      return {
+        ...state,
+        errors: action.errors,
+        submitted: false
+      };
+
+    case "SUBMIT_SUCCESS":
+      return {
+        ...state,
+        errors: {},
+        submitted: true
+      };
+
+    case "RESET":
+      return initialState;
+
+    default:
+      return state;
+  }
+}
 
 function App() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: ""
-  });
-
-  const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
+  const [state, dispatch] = useReducer(
+    formReducer,
+    initialState
+  );
 
   function handleChange(event) {
     const { name, value } = event.target;
 
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-
-    // Clear the success message when editing
-    setSubmitted(false);
-  }
-
-  function validateForm() {
-    const newErrors = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Enter a valid email";
-    }
-
-    return newErrors;
+    dispatch({
+      type: "CHANGE",
+      name,
+      value
+    });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    const newErrors = validateForm();
-    setErrors(newErrors);
+    const newErrors = {};
 
-    if (Object.keys(newErrors).length === 0) {
-      setSubmitted(true);
-      console.log("Form submitted:", formData);
-    } else {
-      setSubmitted(false);
+    if (!state.name.trim()) {
+      newErrors.name = "Name is required";
     }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email)) {
+      newErrors.email = "Enter a valid email";
+    }
+
+    if (Object.keys(newErrors).length > 0) {
+      dispatch({
+        type: "SET_ERRORS",
+        errors: newErrors
+      });
+      return;
+    }
+
+    dispatch({ type: "SUBMIT_SUCCESS" });
+
+    console.log("Submitted:", {
+      name: state.name,
+      email: state.email
+    });
   }
 
   return (
     <div>
-      <h1>Registration with Validation</h1>
+      <h1>Registration with useReducer</h1>
 
       <form onSubmit={handleSubmit}>
         <div>
           <label>Student Name:</label>
           <input
             name="name"
-            value={formData.name}
+            value={state.name}
             onChange={handleChange}
             placeholder="Enter name"
           />
 
-          {errors.name && <p>{errors.name}</p>}
+          {state.errors.name && (
+            <p>{state.errors.name}</p>
+          )}
         </div>
 
         <br />
@@ -615,20 +757,28 @@ function App() {
           <input
             name="email"
             type="email"
-            value={formData.email}
+            value={state.email}
             onChange={handleChange}
             placeholder="Enter email"
           />
 
-          {errors.email && <p>{errors.email}</p>}
+          {state.errors.email && (
+            <p>{state.errors.email}</p>
+          )}
         </div>
 
         <br />
 
-        <button type="submit">Submit</button>
+        <button type="submit">Submit</button>{" "}
+        <button
+          type="button"
+          onClick={() => dispatch({ type: "RESET" })}
+        >
+          Reset
+        </button>
       </form>
 
-      {submitted && (
+      {state.submitted && (
         <p>Form submitted successfully!</p>
       )}
     </div>
