@@ -646,141 +646,216 @@
 
 
 // pattern 4 with useReducer hook
-import { useReducer } from "react";
+// import { useReducer } from "react";
 
-const initialState = {
-  name: "",
-  email: "",
-  errors: {},
-  submitted: false
-};
+// const initialState = {
+//   name: "",
+//   email: "",
+//   errors: {},
+//   submitted: false
+// };
 
-function formReducer(state, action) {
-  switch (action.type) {
-    case "CHANGE":
-      return {
-        ...state,
-        [action.name]: action.value,
-        submitted: false
-      };
+// function formReducer(state, action) {
+//   switch (action.type) {
+//     case "CHANGE":
+//       return {
+//         ...state,
+//         [action.name]: action.value,
+//         submitted: false
+//       };
 
-    case "SET_ERRORS":
-      return {
-        ...state,
-        errors: action.errors,
-        submitted: false
-      };
+//     case "SET_ERRORS":
+//       return {
+//         ...state,
+//         errors: action.errors,
+//         submitted: false
+//       };
 
-    case "SUBMIT_SUCCESS":
-      return {
-        ...state,
-        errors: {},
-        submitted: true
-      };
+//     case "SUBMIT_SUCCESS":
+//       return {
+//         ...state,
+//         errors: {},
+//         submitted: true
+//       };
 
-    case "RESET":
-      return initialState;
+//     case "RESET":
+//       return initialState;
 
-    default:
-      return state;
-  }
-}
+//     default:
+//       return state;
+//   }
+// }
+
+// function App() {
+//   const [state, dispatch] = useReducer(
+//     formReducer,
+//     initialState
+//   );
+
+//   function handleChange(event) {
+//     const { name, value } = event.target;
+
+//     dispatch({
+//       type: "CHANGE",
+//       name,
+//       value
+//     });
+//   }
+
+//   function handleSubmit(event) {
+//     event.preventDefault();
+
+//     const newErrors = {};
+
+//     if (!state.name.trim()) {
+//       newErrors.name = "Name is required";
+//     }
+
+//     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email)) {
+//       newErrors.email = "Enter a valid email";
+//     }
+
+//     if (Object.keys(newErrors).length > 0) {
+//       dispatch({
+//         type: "SET_ERRORS",
+//         errors: newErrors
+//       });
+//       return;
+//     }
+
+//     dispatch({ type: "SUBMIT_SUCCESS" });
+
+//     console.log("Submitted:", {
+//       name: state.name,
+//       email: state.email
+//     });
+//   }
+
+//   return (
+//     <div>
+//       <h1>Registration with useReducer</h1>
+
+//       <form onSubmit={handleSubmit}>
+//         <div>
+//           <label>Student Name:</label>
+//           <input
+//             name="name"
+//             value={state.name}
+//             onChange={handleChange}
+//             placeholder="Enter name"
+//           />
+
+//           {state.errors.name && (
+//             <p>{state.errors.name}</p>
+//           )}
+//         </div>
+
+//         <br />
+
+//         <div>
+//           <label>Email:</label>
+//           <input
+//             name="email"
+//             type="email"
+//             value={state.email}
+//             onChange={handleChange}
+//             placeholder="Enter email"
+//           />
+
+//           {state.errors.email && (
+//             <p>{state.errors.email}</p>
+//           )}
+//         </div>
+
+//         <br />
+
+//         <button type="submit">Submit</button>{" "}
+//         <button
+//           type="button"
+//           onClick={() => dispatch({ type: "RESET" })}
+//         >
+//           Reset
+//         </button>
+//       </form>
+
+//       {state.submitted && (
+//         <p>Form submitted successfully!</p>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+//pattern 5 with input field
+import { useState } from "react";
+import InputField from "./components/InputField";
 
 function App() {
-  const [state, dispatch] = useReducer(
-    formReducer,
-    initialState
-  );
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
 
   function handleChange(event) {
     const { name, value } = event.target;
 
-    dispatch({
-      type: "CHANGE",
-      name,
-      value
-    });
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
   }
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    const newErrors = {};
-
-    if (!state.name.trim()) {
-      newErrors.name = "Name is required";
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email)) {
-      newErrors.email = "Enter a valid email";
-    }
-
-    if (Object.keys(newErrors).length > 0) {
-      dispatch({
-        type: "SET_ERRORS",
-        errors: newErrors
-      });
-      return;
-    }
-
-    dispatch({ type: "SUBMIT_SUCCESS" });
-
-    console.log("Submitted:", {
-      name: state.name,
-      email: state.email
-    });
+    alert("Registration completed for " + formData.name);
   }
 
   return (
     <div>
-      <h1>Registration with useReducer</h1>
+      <h1>Student Registration</h1>
 
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Student Name:</label>
-          <input
-            name="name"
-            value={state.name}
-            onChange={handleChange}
-            placeholder="Enter name"
-          />
+        <InputField
+          label="Student Name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Enter your name"
+        />
 
-          {state.errors.name && (
-            <p>{state.errors.name}</p>
-          )}
-        </div>
+        <InputField
+          label="Email Address"
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Enter your email"
+        />
 
-        <br />
+        <InputField
+          label="Password"
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          placeholder="Enter your password"
+        />
 
-        <div>
-          <label>Email:</label>
-          <input
-            name="email"
-            type="email"
-            value={state.email}
-            onChange={handleChange}
-            placeholder="Enter email"
-          />
-
-          {state.errors.email && (
-            <p>{state.errors.email}</p>
-          )}
-        </div>
-
-        <br />
-
-        <button type="submit">Submit</button>{" "}
-        <button
-          type="button"
-          onClick={() => dispatch({ type: "RESET" })}
-        >
-          Reset
+        <button type="submit">
+          Register
         </button>
       </form>
-
-      {state.submitted && (
-        <p>Form submitted successfully!</p>
-      )}
     </div>
   );
 }
