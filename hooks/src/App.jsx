@@ -323,27 +323,68 @@
 
 
 
-import {useRef} from "react"
+// import {useRef} from "react"
+// function App(){
+//   const nameRef=useRef(null)
+//   function handleSubmit(e){
+//     e.preventDefault()
+//     alert("Student Name: " + nameRef.current.value)
+//   }
+//   return(
+//     <div>
+//       <h1> UnControlled </h1>
+//       <form onSubmit={handleSubmit}>
+//       <label htmlFor="studentName">
+//         Name:
+//       </label>
+//       <input
+//         id="studentName"
+//         type="text"
+//         ref={nameRef}
+//         placeholder="Enter your name"
+//       />
+//       <button type="submit">Submit</button>
+//       </form>
+//     </div>
+//   )
+// }
+// export default App
+
+
+
+
+
+
+
+
+
+import {useState} from "react"
 function App(){
-  const nameRef=useRef(null)
+  const [name,setName]=useState("")
+  const [email,setEmail]=useState("")
+  const[course,setCourse]=useState("")
+
   function handleSubmit(e){
     e.preventDefault()
-    alert("Student Name: " + nameRef.current.value)
+
+    alert(
+      "Name: " + name + "\n" +
+      "Email: " + email + "\n" +
+      "Course: " + course
+    )
   }
   return(
     <div>
-      <h1> UnControlled </h1>
+      <h1> Student Registration</h1>
+
       <form onSubmit={handleSubmit}>
-      <label htmlFor="studentName">
-        Name:
-      </label>
-      <input
-        id="studentName"
-        type="text"
-        ref={nameRef}
-        placeholder="Enter your name"
-      />
-      <button type="submit">Submit</button>
+        <label> Student Name:</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+          placeholder="Enter your name"
+        />
       </form>
     </div>
   )
