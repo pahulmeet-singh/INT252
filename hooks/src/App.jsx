@@ -938,61 +938,56 @@
 
 
 
-//new form with name , email and password with validation and error messages
+//code to run accessibleform.jsx
+// import AccessibleForm from "./AccessibleForm";
+
+// function App() {
+//   return (
+//     <div>
+//       <AccessibleForm />
+//     </div>
+//   );
+// }
+
+// export default App;
+
 import { useState } from "react";
-import InputField from "./components/InputField";
 
 function App() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: ""
-  });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const [errors, setErrors] = useState({});
-  const [submitted, setSubmitted] = useState(false);
-
-  function handleChange(event) {
-    const { name, value } = event.target;
-
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-
-    // Clear the success message when editing
-    setSubmitted(false);
-  }
-
-  function validateForm() {
-    const newErrors = {};
-
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-    }
-
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Enter a valid email address";
-    }
-
-    if (formData.password.length < 6) {
-      newErrors.password = "Password must be at least 6 characters long";
-    }
-
-    return newErrors;
-  }
+  const [success, setSuccess] = useState(false);
 
   function handleSubmit(event) {
     event.preventDefault();
 
-    const newErrors = validateForm();
+    const newErrors = {};
+
+    
+    if (name.trim() === "") {
+      newErrors.name = "Name is required";
+    }
+
+  
+    if (!email.includes("@")) {
+      newErrors.email = "Enter a valid email";
+    }
+
+    
+    if (password.length < 8) {
+      newErrors.password =
+        "Password must contain at least 8 characters";
+    }
+
     setErrors(newErrors);
 
     if (Object.keys(newErrors).length === 0) {
-      setSubmitted(true);
-      console.log("Form submitted:", formData);
+      setSuccess(true);
     } else {
-      setSubmitted(false);
+      setSuccess(false);
     }
   }
 
@@ -1001,42 +996,39 @@ function App() {
       <h1>Student Registration</h1>
 
       <form onSubmit={handleSubmit}>
-        <InputField
-          label="Student Name"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          placeholder="Enter your name"
-          error={errors.name}
-        />
+        <div>
+          <label>Student Name:</label>
+          <input
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <p>{errors.name}</p>
+        </div>
 
-        <InputField
-          label="Email Address"
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          placeholder="Enter your email"
-          error={errors.email}
-        />
+        <div>
+          <label>Email:</label>
+          <input
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+          <p>{errors.email}</p>
+        </div>
 
-        <InputField
-          label="Password"
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          placeholder="Enter your password"
-          error={errors.password}
-        />
+        <div>
+          <label>Password:</label>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <p>{errors.password}</p>
+        </div>
 
-        <button type="submit">
-          Register
-        </button>
+        <button type="submit">Register</button>
       </form>
 
-      {submitted && (
-        <p>Form submitted successfully!</p>
+      {success && (
+        <h3>Registration Successful!</h3>
       )}
     </div>
   );
