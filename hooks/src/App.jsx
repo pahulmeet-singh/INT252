@@ -31,6 +31,8 @@
 // }
 // export default App;
 
+import { email } from "zod"
+
 
 
 
@@ -951,78 +953,351 @@
 
 // export default App;
 
+
+
+
+
+
+
+
+
+// import { useState } from "react";
+
+// function App() {
+//   const [name, setName] = useState("");
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+
+//   const [errors, setErrors] = useState({});
+//   const [success, setSuccess] = useState(false);
+
+//   function handleSubmit(event) {
+//     event.preventDefault();
+
+//     const newErrors = {};
+
+    
+//     if (name.trim() === "") {
+//       newErrors.name = "Name is required";
+//     }
+
+  
+//     if (!email.includes("@")) {
+//       newErrors.email = "Enter a valid email";
+//     }
+
+    
+//     if (password.length < 8) {
+//       newErrors.password =
+//         "Password must contain at least 8 characters";
+//     }
+
+//     setErrors(newErrors);
+
+//     if (Object.keys(newErrors).length === 0) {
+//       setSuccess(true);
+//     } else {
+//       setSuccess(false);
+//     }
+//   }
+
+//   return (
+//     <div>
+//       <h1>Student Registration</h1>
+
+//       <form onSubmit={handleSubmit}>
+//         <div>
+//           <label>Student Name:</label>
+//           <input
+//             value={name}
+//             onChange={(e) => setName(e.target.value)}
+//           />
+//           <p>{errors.name}</p>
+//         </div>
+
+//         <div>
+//           <label>Email:</label>
+//           <input
+//             value={email}
+//             onChange={(e) => setEmail(e.target.value)}
+//           />
+//           <p>{errors.email}</p>
+//         </div>
+
+//         <div>
+//           <label>Password:</label>
+//           <input
+//             type="password"
+//             value={password}
+//             onChange={(e) => setPassword(e.target.value)}
+//           />
+//           <p>{errors.password}</p>
+//         </div>
+
+//         <button type="submit">Register</button>
+//       </form>
+
+//       {success && (
+//         <h3>Registration Successful!</h3>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+// //student Schema validation using zod
+// import studentSchema from "./schemas/studentSchema";
+
+// function App() {
+//   const student={
+//     name:"Priya",
+//     email:"priya@example.com",
+//     age:21
+//   }
+//   const result=studentSchema.safeParse(student)
+//   if(result.success){
+//     console.log("Validation successful:", result.data)
+//   }else{
+//     console.log("Validation failed:", result.error.issues)
+//   }
+//   return(
+//     <div>
+//       <h1>Zod Validation</h1>
+//       <p>Open the browser console to see the validation results.</p>
+//     </div>
+//   ) 
+// }
+// export default App;
+
+
+
+
+
+
+
+
+
+// //stuent schema validation using zod with form validation
+// import { useState } from "react";
+// import studentSchema from "./schemas/studentSchema";
+
+// function App() {
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     email: "",
+//     age: ""
+//   });
+
+//   const [errors, setErrors] = useState({});
+//   const [success, setSuccess] = useState(false);
+
+//   function handleChange(event) {
+//     const { name, value } = event.target;
+//     setFormData((prev) => ({
+//       ...prev,
+//       [name]: value
+//     }));
+//   }
+
+//   function handleSubmit(event) {
+//     event.preventDefault();
+
+//     const result = studentSchema.safeParse(formData);
+
+//     if (result.success) {
+//       setErrors({});
+//       setSuccess(true);
+//       console.log("Validation successful:", result.data);
+//     } else {
+//       const newErrors = {};
+//       result.error.issues.forEach((issue) => {
+//         newErrors[issue.path[0]] = issue.message;
+//       });
+//       setErrors(newErrors);
+//     }
+//   }
+
+//   return(
+//     <div>
+//       <h1>Student Registration with Zod Validation</h1>
+
+//       <form onSubmit={handleSubmit}>
+//         <div>
+//           <label htmlFor="name">Student Name:</label>
+//           <input
+//             id="name"
+//             name="name"
+//             value={formData.name}
+//             onChange={handleChange}
+//             placeholder="Enter your name"
+//           />
+//           {errors.name && <p>{errors.name}</p>}
+//         </div>
+
+//         <br />
+
+//         <div>
+//           <label htmlFor="email">Email:</label>
+//           <input
+//             id="email"
+//             name="email"
+//             type="email"
+//             value={formData.email}
+//             onChange={handleChange}
+//             placeholder="Enter your email"
+//           />
+//           {errors.email && <p>{errors.email}</p>}
+//         </div>
+
+//         <br />
+
+//         <div>
+//           <label htmlFor="age">Age:</label>
+//           <input
+//             id="age"
+//             name="age"
+//             type="number"
+//             value={formData.age}
+//             onChange={handleChange}
+//             placeholder="Enter your age"
+//           />
+//           {errors.age && <p>{errors.age}</p>}
+//         </div>
+
+//         <br />
+
+//         <button type="submit">Register</button>
+//       </form>
+
+//       {success && (
+//         <h3>Registration Successful!</h3>
+//       )}
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+// //build a registration form with
+// 1. controlled inputs for every field
+// 2. a reusable TextField with label and error
+// 3. an extra fiels when role is other
+// 4. a zod schema, with refine for confirm password
+// 5. connect it with safeParse or zodResolver
+// 6. test it using the keyboard only
+
+// // schema roles:
+// name: atleat 2 characters
+// email: a valid email
+// password: at least 8 characters
+// confirm: must match password
+// role: student, teacher, other
+// otherRole: required if role is other
+
 import { useState } from "react";
+import studentSchema from "./schemas/studentSchema";
 
 function App() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    age: ""
+  });
 
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
 
+  function handleChange(event) {
+    const { name, value } = event.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+  }
+
   function handleSubmit(event) {
     event.preventDefault();
 
-    const newErrors = {};
+    const result = studentSchema.safeParse(formData);
 
-    
-    if (name.trim() === "") {
-      newErrors.name = "Name is required";
-    }
-
-  
-    if (!email.includes("@")) {
-      newErrors.email = "Enter a valid email";
-    }
-
-    
-    if (password.length < 8) {
-      newErrors.password =
-        "Password must contain at least 8 characters";
-    }
-
-    setErrors(newErrors);
-
-    if (Object.keys(newErrors).length === 0) {
+    if (result.success) {
+      setErrors({});
       setSuccess(true);
+      console.log("Validation successful:", result.data);
     } else {
-      setSuccess(false);
+      const newErrors = {};
+      result.error.issues.forEach((issue) => {
+        newErrors[issue.path[0]] = issue.message;
+      });
+      setErrors(newErrors);
     }
   }
 
-  return (
+  return(
     <div>
-      <h1>Student Registration</h1>
+      <h1>Student Registration with Zod Validation</h1>
 
       <form onSubmit={handleSubmit}>
         <div>
-          <label>Student Name:</label>
+          <label htmlFor="name">Student Name:</label>
           <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            placeholder="Enter your name"
           />
-          <p>{errors.name}</p>
+          {errors.name && <p>{errors.name}</p>}
         </div>
 
-        <div>
-          <label>Email:</label>
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <p>{errors.email}</p>
-        </div>
+        <br />
 
         <div>
-          <label>Password:</label>
+          <label htmlFor="email">Email:</label>
           <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            id="email"
+            name="email"
+            type="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Enter your email"
           />
-          <p>{errors.password}</p>
+          {errors.email && <p>{errors.email}</p>}
         </div>
+
+        <br />
+
+        <div>
+          <label htmlFor="age">Age:</label>
+          <input
+            id="age"
+            name="age"
+            type="number"
+            value={formData.age}
+            onChange={handleChange}
+            placeholder="Enter your age"
+          />
+          {errors.age && <p>{errors.age}</p>}
+        </div>
+
+        <br />
 
         <button type="submit">Register</button>
       </form>
