@@ -870,61 +870,176 @@
 
 
 
-//patter 6 conditional rendering of success message
+// //pattern 6 conditional rendering of success message
+// import { useState } from "react";
+
+// function App() {
+//   const [course, setCourse] = useState("");
+//   const[submitted, setSubmitted] = useState(false);
+//   const[password, setPassword] = useState("");
+//   const[showPassword, setShowPassword] = useState(false);
+  
+//   function handleSubmit(event) {
+//     event.preventDefault();
+//     setSubmitted(true);
+//   }
+
+//   return(
+//     <div>
+//       <h1>Student Registration</h1>
+
+
+//       <form onSubmit={handleSubmit}>
+//         <label> Select Course: </label>
+//         <select
+//           value={course}
+//           onChange={(e) => setCourse(e.target.value)}
+//         >
+//           <option value="">Select a course</option>
+//           <option value="React">React</option>
+//           <option value="Node.js">Node.js</option>
+//           <option value="Python">Python</option>
+//         </select>
+
+//         <br/><br/>
+
+//         <label> Password: </label>
+//         <input
+//           type={showPassword ? "text" : "password"}
+//           value={password}
+//           onChange={(e) => setPassword(e.target.value)}
+//           placeholder="Enter your password"
+//         />
+//         <button
+//           type="button"
+//           onClick={() => setShowPassword(!showPassword)}
+//         >
+//           {showPassword ? "Hide" : "Show"} Password
+//         </button>
+
+//         <br/><br/>
+
+//         <button type="submit">Submit</button>
+
+//         {submitted && (
+//           <p>Registration completed for {course}</p>
+//         )}
+//       </form>
+//     </div>
+//   )
+// }
+// export default App
+
+
+
+
+
+
+
+
+
+//new form with name , email and password with validation and error messages
 import { useState } from "react";
+import InputField from "./components/InputField";
 
 function App() {
-  const [course, setCourse] = useState("");
-  const[submitted, setSubmitted] = useState(false);
-  const[password, setPassword] = useState("");
-  const[showPassword, setShowPassword] = useState(false);
-  
-  function handleSubmit(event) {
-    event.preventDefault();
-    setSubmitted(true);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    password: ""
+  });
+
+  const [errors, setErrors] = useState({});
+  const [submitted, setSubmitted] = useState(false);
+
+  function handleChange(event) {
+    const { name, value } = event.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value
+    }));
+
+    // Clear the success message when editing
+    setSubmitted(false);
   }
 
-  return(
+  function validateForm() {
+    const newErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = "Enter a valid email address";
+    }
+
+    if (formData.password.length < 6) {
+      newErrors.password = "Password must be at least 6 characters long";
+    }
+
+    return newErrors;
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const newErrors = validateForm();
+    setErrors(newErrors);
+
+    if (Object.keys(newErrors).length === 0) {
+      setSubmitted(true);
+      console.log("Form submitted:", formData);
+    } else {
+      setSubmitted(false);
+    }
+  }
+
+  return (
     <div>
       <h1>Student Registration</h1>
 
-
       <form onSubmit={handleSubmit}>
-        <label> Select Course: </label>
-        <select
-          value={course}
-          onChange={(e) => setCourse(e.target.value)}
-        >
-          <option value="">Select a course</option>
-          <option value="React">React</option>
-          <option value="Node.js">Node.js</option>
-          <option value="Python">Python</option>
-        </select>
-
-        <br/><br/>
-
-        <label> Password: </label>
-        <input
-          type={showPassword ? "text" : "password"}
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Enter your password"
+        <InputField
+          label="Student Name"
+          name="name"
+          value={formData.name}
+          onChange={handleChange}
+          placeholder="Enter your name"
+          error={errors.name}
         />
-        <button
-          type="button"
-          onClick={() => setShowPassword(!showPassword)}
-        >
-          {showPassword ? "Hide" : "Show"} Password
+
+        <InputField
+          label="Email Address"
+          type="email"
+          name="email"
+          value={formData.email}
+          onChange={handleChange}
+          placeholder="Enter your email"
+          error={errors.email}
+        />
+
+        <InputField
+          label="Password"
+          type="password"
+          name="password"
+          value={formData.password}
+          onChange={handleChange}
+          placeholder="Enter your password"
+          error={errors.password}
+        />
+
+        <button type="submit">
+          Register
         </button>
-
-        <br/><br/>
-
-        <button type="submit">Submit</button>
-
-        {submitted && (
-          <p>Registration completed for {course}</p>
-        )}
       </form>
+
+      {submitted && (
+        <p>Form submitted successfully!</p>
+      )}
     </div>
-  )
+  );
 }
+
+export default App;
