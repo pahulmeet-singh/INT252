@@ -1209,105 +1209,105 @@
 // role: student, teacher, other
 // otherRole: required if role is other
 
-import { useState } from "react";
-import studentSchema from "./schemas/studentSchema";
+// import { useState } from "react";
+// import studentSchema from "./schemas/studentSchema";
 
-function App() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    age: ""
-  });
+// function App() {
+//   const [formData, setFormData] = useState({
+//     name: "",
+//     email: "",
+//     age: ""
+//   });
 
-  const [errors, setErrors] = useState({});
-  const [success, setSuccess] = useState(false);
+//   const [errors, setErrors] = useState({});
+//   const [success, setSuccess] = useState(false);
 
-  function handleChange(event) {
-    const { name, value } = event.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value
-    }));
-  }
+//   function handleChange(event) {
+//     const { name, value } = event.target;
+//     setFormData((prev) => ({
+//       ...prev,
+//       [name]: value
+//     }));
+//   }
 
-  function handleSubmit(event) {
-    event.preventDefault();
+//   function handleSubmit(event) {
+//     event.preventDefault();
 
-    const result = studentSchema.safeParse(formData);
+//     const result = studentSchema.safeParse(formData);
 
-    if (result.success) {
-      setErrors({});
-      setSuccess(true);
-      console.log("Validation successful:", result.data);
-    } else {
-      const newErrors = {};
-      result.error.issues.forEach((issue) => {
-        newErrors[issue.path[0]] = issue.message;
-      });
-      setErrors(newErrors);
-    }
-  }
+//     if (result.success) {
+//       setErrors({});
+//       setSuccess(true);
+//       console.log("Validation successful:", result.data);
+//     } else {
+//       const newErrors = {};
+//       result.error.issues.forEach((issue) => {
+//         newErrors[issue.path[0]] = issue.message;
+//       });
+//       setErrors(newErrors);
+//     }
+//   }
 
-  return(
-    <div>
-      <h1>Student Registration with Zod Validation</h1>
+//   return(
+//     <div>
+//       <h1>Student Registration with Zod Validation</h1>
 
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Student Name:</label>
-          <input
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Enter your name"
-          />
-          {errors.name && <p>{errors.name}</p>}
-        </div>
+//       <form onSubmit={handleSubmit}>
+//         <div>
+//           <label htmlFor="name">Student Name:</label>
+//           <input
+//             id="name"
+//             name="name"
+//             value={formData.name}
+//             onChange={handleChange}
+//             placeholder="Enter your name"
+//           />
+//           {errors.name && <p>{errors.name}</p>}
+//         </div>
 
-        <br />
+//         <br />
 
-        <div>
-          <label htmlFor="email">Email:</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            value={formData.email}
-            onChange={handleChange}
-            placeholder="Enter your email"
-          />
-          {errors.email && <p>{errors.email}</p>}
-        </div>
+//         <div>
+//           <label htmlFor="email">Email:</label>
+//           <input
+//             id="email"
+//             name="email"
+//             type="email"
+//             value={formData.email}
+//             onChange={handleChange}
+//             placeholder="Enter your email"
+//           />
+//           {errors.email && <p>{errors.email}</p>}
+//         </div>
 
-        <br />
+//         <br />
 
-        <div>
-          <label htmlFor="age">Age:</label>
-          <input
-            id="age"
-            name="age"
-            type="number"
-            value={formData.age}
-            onChange={handleChange}
-            placeholder="Enter your age"
-          />
-          {errors.age && <p>{errors.age}</p>}
-        </div>
+//         <div>
+//           <label htmlFor="age">Age:</label>
+//           <input
+//             id="age"
+//             name="age"
+//             type="number"
+//             value={formData.age}
+//             onChange={handleChange}
+//             placeholder="Enter your age"
+//           />
+//           {errors.age && <p>{errors.age}</p>}
+//         </div>
 
-        <br />
+//         <br />
 
-        <button type="submit">Register</button>
-      </form>
+//         <button type="submit">Register</button>
+//       </form>
 
-      {success && (
-        <h3>Registration Successful!</h3>
-      )}
-    </div>
-  );
-}
+//       {success && (
+//         <h3>Registration Successful!</h3>
+//       )}
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;
 
 
 
@@ -1355,3 +1355,86 @@ export default App;
 // The DELETE method is used to remove a resource from the server. When a form is submitted using the DELETE method, it indicates that the client wants to delete a specific resource identified by the URL.
 
 // In summary, the DELETE method is used to remove resources from the server, and it is typically used in RESTful APIs to delete specific items or records.
+
+
+
+
+
+
+
+
+
+//19 nov - forms
+import { useState } from "react";
+
+function App(){
+  const[name, setName]=useState("")
+  const[email, setEmail]=useState("")
+
+  const sendData=async()=>{
+    const response=await fetch(
+      "https://jsonplaceholder.typicode.com/posts",
+      {
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({name,email})
+      }
+    )
+    const data=await response.json()
+    console.log(data)
+    alert("Form submitted successfully!")
+  }
+
+  return(
+    <div>
+      <h1>Form Submission</h1>
+      <form onSubmit={(e)=>{
+        e.preventDefault()
+        sendData()
+      }}>
+        <label>Name:</label>
+        <input
+          type="text"
+          value={name}
+          onChange={(e)=>setName(e.target.value)}
+          placeholder="Enter your name"
+        />
+        <br/><br/>
+        <label>Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e)=>setEmail(e.target.value)}
+          placeholder="Enter your email"
+        />
+        <br/><br/>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    )
+}
+export default App;
+
+//diff between api and server
+// An API (Application Programming Interface) is a set of rules and protocols that allows different software applications to communicate with each other. It defines how requests and responses should be structured, enabling developers to interact with a service or application programmatically. APIs can be used to access data, perform operations, or integrate functionalities from one application into another.
+
+// A server, on the other hand, is a physical or virtual machine that hosts applications, services, or data and responds to requests from clients (such as web browsers or mobile apps). The server processes incoming requests, executes the necessary operations, and sends back responses. Servers can host APIs, websites, databases, and other services that clients can access over a network.
+
+// In summary, an API is a set of rules for communication between software applications, 
+// while a server is the infrastructure that hosts and serves those applications or services.
+
+
+//what is restAPI?
+// REST API (Representational State Transfer Application Programming Interface) is a type of web service that follows the principles of REST architecture. It allows clients to interact with a server using standard HTTP methods (GET, POST, PUT, PATCH, DELETE) to perform CRUD (Create, Read, Update, Delete) operations on resources. REST APIs are stateless, meaning each request from a client contains all the information needed for the server to process it, and they often use JSON or XML for data exchange. REST APIs are widely used for building scalable and maintainable web services.
+// In summary, a REST API is a web service that enables communication between clients and servers using standard HTTP methods and follows the principles of REST architecture.
+
+// 7 principles - client server:
+// 1. Client-Server Architecture: The client and server are separate entities that communicate over a network. The client is responsible for the user interface and user experience, while the server handles data storage, processing, and business logic.
+// 2. Statelessness: Each request from the client to the server must contain all the information needed to understand and process the request. The server does not store any client context between requests, making each request independent and self-contained.
+// 3. Cacheability: Responses from the server can be marked as cacheable or non-cacheable. Cacheable responses can be stored by clients or intermediaries (like proxies) to improve performance and reduce the need for repeated requests.
+// 4. Layered System: The architecture can be composed of multiple layers, with each layer having a specific responsibility. Clients do not need to know whether they are communicating directly with the server or through an intermediary layer, such as a load balancer or proxy.
+// 5. Uniform Interface: A consistent and standardized interface is used for communication between clients and servers. This includes using standard HTTP methods (GET, POST, PUT, DELETE), resource URIs, and media types (like JSON or XML) for data representation.
+// 6. Code on Demand (optional): Servers can provide executable code (like JavaScript) to clients, allowing them to extend their functionality. This is an optional constraint and is not always implemented in RESTful systems.
+// 7. Resource-Based: Resources are identified by unique URIs (Uniform Resource Identifiers), and clients interact with these resources using standard HTTP methods. Each resource can have multiple representations (like JSON or XML), and the server can provide the appropriate representation based on the client's request.
