@@ -1308,3 +1308,36 @@ function App() {
 }
 
 export default App;
+
+// why do we use get and post methods in form submission?
+// The GET and POST methods are two of the most commonly used HTTP methods for form submission, and they serve different purposes:
+
+// 1. **GET Method**:
+//    - The GET method is used to request data from a server. When a form is submitted using the GET method, the form data is appended to the URL as query parameters.
+//    - It is suitable for retrieving data without causing any side effects on the server (e.g., searching or filtering).
+//    - The data sent via GET is visible in the URL, which can be bookmarked or shared, but it has limitations on the amount of data that can be sent (URL length restrictions).
+//    - Example: `https://example.com/search?query=react`
+
+// 2. **POST Method**:
+//    - The POST method is used to send data to a server to create or update resources. When a form is submitted using the POST method, the form data is included in the body of the HTTP request.
+//    - It is suitable for operations that have side effects on the server (e.g., creating a new user, submitting a form).
+//    - The data sent via POST is not visible in the URL, making it more secure for sensitive information (like passwords).
+//    - There are no size limitations for the data sent in the body of a POST request.
+
+// In summary, use GET for retrieving data and POST for sending data that modifies server state or includes sensitive information.
+
+
+//diff between put and patch methods in form submission?
+// The PUT and PATCH methods are both used to update resources on a server, but they have different semantics and use cases:
+
+// 1. **PUT Method**:
+//    - The PUT method is used to update an existing resource or create a new resource if it does not exist. When using PUT, the client sends the complete representation of the resource to the server.
+//    - It is idempotent, meaning that making the same PUT request multiple times will have the same effect as making it once.
+//    - Example: If you have a user resource at `/users/1`, sending a PUT request with the full user data will replace the existing user data with the new data.
+
+// 2. **PATCH Method**:
+//    - The PATCH method is used to apply partial updates to an existing resource. Instead of sending the complete representation of the resource, the client sends only the changes that need to be applied.
+//    - It is not necessarily idempotent, as applying the same PATCH request multiple times may result in different outcomes depending on the current state of the resource.
+//    - Example: If you want to update only the email of a user at `/users/1`, you can send a PATCH request with just the new email, and the server will update only that field without affecting other fields.
+
+// In summary, use PUT when you want to replace the entire resource, and use PATCH when you want to make partial updates to an existing resource.
