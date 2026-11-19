@@ -1309,6 +1309,14 @@ function App() {
 
 export default App;
 
+
+
+
+
+
+
+
+
 // why do we use get and post methods in form submission?
 // The GET and POST methods are two of the most commonly used HTTP methods for form submission, and they serve different purposes:
 
@@ -1341,3 +1349,9 @@ export default App;
 //    - Example: If you want to update only the email of a user at `/users/1`, you can send a PATCH request with just the new email, and the server will update only that field without affecting other fields.
 
 // In summary, use PUT when you want to replace the entire resource, and use PATCH when you want to make partial updates to an existing resource.
+
+
+//wbu delete method in form submission?
+// The DELETE method is used to remove a resource from the server. When a form is submitted using the DELETE method, it indicates that the client wants to delete a specific resource identified by the URL.
+
+// In summary, the DELETE method is used to remove resources from the server, and it is typically used in RESTful APIs to delete specific items or records.
