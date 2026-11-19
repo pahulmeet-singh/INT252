@@ -1365,57 +1365,57 @@
 
 
 //19 nov - forms
-import { useState } from "react";
+// import { useState } from "react";
 
-function App(){
-  const[name, setName]=useState("")
-  const[email, setEmail]=useState("")
+// function App(){
+//   const[name, setName]=useState("")
+//   const[email, setEmail]=useState("")
 
-  const sendData=async()=>{
-    const response=await fetch(
-      "https://jsonplaceholder.typicode.com/posts",
-      {
-        method:"POST",
-        headers:{
-          "Content-Type":"application/json"
-        },
-        body:JSON.stringify({name,email})
-      }
-    )
-    const data=await response.json()
-    console.log(data)
-    alert("Form submitted successfully!")
-  }
+//   const sendData=async()=>{
+//     const response=await fetch(
+//       "https://jsonplaceholder.typicode.com/posts",
+//       {
+//         method:"POST",
+//         headers:{
+//           "Content-Type":"application/json"
+//         },
+//         body:JSON.stringify({name,email})
+//       }
+//     )
+//     const data=await response.json()
+//     console.log(data)
+//     alert("Form submitted successfully!")
+//   }
 
-  return(
-    <div>
-      <h1>Form Submission</h1>
-      <form onSubmit={(e)=>{
-        e.preventDefault()
-        sendData()
-      }}>
-        <label>Name:</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e)=>setName(e.target.value)}
-          placeholder="Enter your name"
-        />
-        <br/><br/>
-        <label>Email:</label>
-        <input
-          type="email"
-          value={email}
-          onChange={(e)=>setEmail(e.target.value)}
-          placeholder="Enter your email"
-        />
-        <br/><br/>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
-    )
-}
-export default App;
+//   return(
+//     <div>
+//       <h1>Form Submission</h1>
+//       <form onSubmit={(e)=>{
+//         e.preventDefault()
+//         sendData()
+//       }}>
+//         <label>Name:</label>
+//         <input
+//           type="text"
+//           value={name}
+//           onChange={(e)=>setName(e.target.value)}
+//           placeholder="Enter your name"
+//         />
+//         <br/><br/>
+//         <label>Email:</label>
+//         <input
+//           type="email"
+//           value={email}
+//           onChange={(e)=>setEmail(e.target.value)}
+//           placeholder="Enter your email"
+//         />
+//         <br/><br/>
+//         <button type="submit">Submit</button>
+//       </form>
+//     </div>
+//     )
+// }
+// export default App;
 
 //diff between api and server
 // An API (Application Programming Interface) is a set of rules and protocols that allows different software applications to communicate with each other. It defines how requests and responses should be structured, enabling developers to interact with a service or application programmatically. APIs can be used to access data, perform operations, or integrate functionalities from one application into another.
@@ -1438,3 +1438,96 @@ export default App;
 // 5. Uniform Interface: A consistent and standardized interface is used for communication between clients and servers. This includes using standard HTTP methods (GET, POST, PUT, DELETE), resource URIs, and media types (like JSON or XML) for data representation.
 // 6. Code on Demand (optional): Servers can provide executable code (like JavaScript) to clients, allowing them to extend their functionality. This is an optional constraint and is not always implemented in RESTful systems.
 // 7. Resource-Based: Resources are identified by unique URIs (Uniform Resource Identifiers), and clients interact with these resources using standard HTTP methods. Each resource can have multiple representations (like JSON or XML), and the server can provide the appropriate representation based on the client's request.
+
+
+//what is fetch api?
+// The Fetch API is a modern JavaScript interface that allows developers to make network requests to retrieve resources from a server. It provides a more powerful and flexible way to handle HTTP requests and responses compared to older methods like XMLHttpRequest. The Fetch API uses Promises, making it easier to work with asynchronous operations and handle responses in a cleaner way.
+
+// In summary, the Fetch API is a modern JavaScript interface for making network requests, 
+// providing a more flexible and promise-based approach to handling HTTP requests and responses.
+
+
+// import { useEffect, useState } from "react";
+
+// function App() {
+//   const [students,setStudents]=useState([])
+
+//   useEffect(()=>{
+//     fetch("https://jsonplaceholder.typicode.com/users")
+//     .then((response)=>response.json())
+//     .then((data)=>{
+//       setStudents(data)
+//     })
+//     .catch(error=>{
+//       console.error("Error fetching students:", error)
+//     })
+//   },[])
+
+//   return(
+//     <div>
+//       <h1>Students List</h1>
+//       {students.map(student =>(
+//         <div key={student.id}>
+//           <h2>{student.name}</h2>
+//           <p>Email: {student.email}</p>
+//           <p>Phone: {student.phone}</p>
+//         </div>
+//       ))}
+//     </div>
+//   )
+// }
+// export default App;
+
+
+// rendering changes on basis of dependency list in 4 scenarios:
+// The useEffect hook in React allows you to perform side effects in functional components. The behavior of the effect can be controlled by specifying a dependency list, which determines when the effect should run. Here are four scenarios based on the dependency list:
+// 1. Empty Dependency List: The effect runs only once after the initial render.
+// 2. No Dependency List: The effect runs after every render.
+// 3. Specific Dependencies: The effect runs only when the specified dependencies change.
+// 4. Cleanup Function: The effect can return a cleanup function that runs before the component unmounts or before the effect runs again.
+
+
+
+
+
+
+
+
+
+//using POST method for the previous example
+import { useEffect, useState } from "react";
+
+function App() {
+  const [students,setStudents]=useState([])
+
+  useEffect(()=>{
+    fetch("https://jsonplaceholder.typicode.com/users",{
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json"
+      },
+      body:JSON.stringify({name:"John Doe",email:"john.doe@example.com"})
+    })
+    .then((response)=>response.json())
+    .then((data)=>{
+      setStudents(data)
+    })
+    .catch(error=>{
+      console.error("Error fetching students:", error)
+    })
+  },[])
+
+  return(
+    <div>
+      <h1>Students List</h1>
+      {students.map(student =>(
+        <div key={student.id}>
+          <h2>{student.name}</h2>
+          <p>Email: {student.email}</p>
+          <p>Phone: {student.phone}</p>
+        </div>
+      ))}
+    </div>
+  )
+}
+export default App;
