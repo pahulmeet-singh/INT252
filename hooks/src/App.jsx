@@ -1620,7 +1620,7 @@
 
 
 
-// Pages folder 
+// npm i react-router  || Pages folder 
 import {BrowserRouter, Routes, Route} from "react-router"
 import Home from "./pages/Home"
 import About from "./pages/About"
