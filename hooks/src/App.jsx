@@ -1621,7 +1621,7 @@
 
 
 // npm i react-router  || Pages folder 
-import {BrowserRouter, Routes, Route, Link} from "react-router"
+import {BrowserRouter, Routes, Route, Link, NavLink} from "react-router"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Students from "./pages/Students"
@@ -1629,16 +1629,28 @@ import Students from "./pages/Students"
 function App() {
   return(
     <BrowserRouter>
+
+    <NavLink
+    to="/students"
+    style={({ isActive }) => ({
+      color: isActive ? "red" : "black"
+    })}
+    >
+      Students
+    </NavLink>
+
     <nav>
       <Link to="/">Home</Link> |{" "}
       <Link to="/about">About</Link> |{" "}
       <Link to="/students">Students</Link>
     </nav>
+
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/students" element={<Students/>}/>
       </Routes>
+      
     </BrowserRouter>
   )
 }
