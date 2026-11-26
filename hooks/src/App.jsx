@@ -1540,74 +1540,101 @@
 
 
 
-// TANSTACK
-import { useQuery } from '@tanstack/react-query';
+// // TANSTACK
+// import { useQuery } from '@tanstack/react-query';
+
+// function App() {
+
+//   const fetchStudents = async () => {
+
+//     const response = await fetch(
+//       'https://jsonplaceholder.typicode.com/users'
+//     );
+
+//     if (!response.ok) {
+//       throw new Error('Failed to fetch students');
+//     }
+
+//     return response.json();
+//   };
+
+//   const {
+//     data,
+//     isPending,
+//     isError,
+//     error,
+//     isFetching
+//   } = useQuery({
+
+//     queryKey: ['students'],
+
+//     queryFn: fetchStudents,
+
+//     staleTime: 10000,
+
+//     refetchOnWindowFocus: true,
+
+//     refetchInterval: 15000
+
+//   });
+
+//   if (isPending) {
+//     return <h2>Loading Students...</h2>;
+//   }
+
+//   if (isError) {
+//     return <h2>Error: {error.message}</h2>;
+//   }
+
+//   return (
+//     <div>
+
+//       <h1>Student Dashboard</h1>
+
+//       {isFetching && (
+//         <p>Updating data in background...</p>
+//       )}
+
+//       {data.length === 0 ? (
+//         <h3>No Students Found</h3>
+//       ) : (
+//         data.map(student => (
+//           <div key={student.id}>
+//             <h3>{student.name}</h3>
+//             <p>{student.email}</p>
+//           </div>
+//         ))
+//       )}
+
+//     </div>
+//   );
+// }
+
+// export default App;
+
+
+
+
+
+
+
+
+
+// Pages folder 
+import {BrowserRouter, Routes, Route} from "react-router-dom"
+import Home from "./pages/Home"
+import About from "./pages/About"
+import Students from "./pages/Students"
 
 function App() {
-
-  const fetchStudents = async () => {
-
-    const response = await fetch(
-      'https://jsonplaceholder.typicode.com/users'
-    );
-
-    if (!response.ok) {
-      throw new Error('Failed to fetch students');
-    }
-
-    return response.json();
-  };
-
-  const {
-    data,
-    isPending,
-    isError,
-    error,
-    isFetching
-  } = useQuery({
-
-    queryKey: ['students'],
-
-    queryFn: fetchStudents,
-
-    staleTime: 10000,
-
-    refetchOnWindowFocus: true,
-
-    refetchInterval: 15000
-
-  });
-
-  if (isPending) {
-    return <h2>Loading Students...</h2>;
-  }
-
-  if (isError) {
-    return <h2>Error: {error.message}</h2>;
-  }
-
-  return (
-    <div>
-
-      <h1>Student Dashboard</h1>
-
-      {isFetching && (
-        <p>Updating data in background...</p>
-      )}
-
-      {data.length === 0 ? (
-        <h3>No Students Found</h3>
-      ) : (
-        data.map(student => (
-          <div key={student.id}>
-            <h3>{student.name}</h3>
-            <p>{student.email}</p>
-          </div>
-        ))
-      )}
-
-    </div>
-  );
+  return(
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/students" element={<Students/>}/>
+      </Routes>
+    </BrowserRouter>
+  )
 }
-
-export default App;
+export default App
