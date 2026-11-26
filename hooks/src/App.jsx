@@ -1494,40 +1494,49 @@
 
 
 
-//using POST method for the previous example
-import { useEffect, useState } from "react";
+// //using POST method for the previous example
+// import { useEffect, useState } from "react";
 
-function App() {
-  const [students,setStudents]=useState([])
+// function App() {
+//   const [students,setStudents]=useState([])
 
-  useEffect(()=>{
-    fetch("https://jsonplaceholder.typicode.com/users",{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify({name:"John Doe",email:"john.doe@example.com"})
-    })
-    .then((response)=>response.json())
-    .then((data)=>{
-      setStudents(data)
-    })
-    .catch(error=>{
-      console.error("Error fetching students:", error)
-    })
-  },[])
+//   useEffect(()=>{
+//     fetch("https://jsonplaceholder.typicode.com/users",{
+//       method:"POST",
+//       headers:{
+//         "Content-Type":"application/json"
+//       },
+//       body:JSON.stringify({name:"John Doe",email:"john.doe@example.com"})
+//     })
+//     .then((response)=>response.json())
+//     .then((data)=>{
+//       setStudents(data)
+//     })
+//     .catch(error=>{
+//       console.error("Error fetching students:", error)
+//     })
+//   },[])
 
-  return(
-    <div>
-      <h1>Students List</h1>
-      {students.map(student =>(
-        <div key={student.id}>
-          <h2>{student.name}</h2>
-          <p>Email: {student.email}</p>
-          <p>Phone: {student.phone}</p>
-        </div>
-      ))}
-    </div>
-  )
-}
-export default App;
+//   return(
+//     <div>
+//       <h1>Students List</h1>
+//       {students.map(student =>(
+//         <div key={student.id}>
+//           <h2>{student.name}</h2>
+//           <p>Email: {student.email}</p>
+//           <p>Phone: {student.phone}</p>
+//         </div>
+//       ))}
+//     </div>
+//   )
+// }
+// export default App;
+
+
+
+
+
+
+
+
+
