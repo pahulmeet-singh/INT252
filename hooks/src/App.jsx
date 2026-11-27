@@ -1625,6 +1625,7 @@ import {BrowserRouter, Routes, Route, Link, NavLink} from "react-router"
 import Home from "./pages/Home"
 import About from "./pages/About"
 import Students from "./pages/Students"
+import StudentDetails from "./pages/StudentDetails"
 
 function App() {
   return(
@@ -1649,6 +1650,7 @@ function App() {
         <Route path="/" element={<Home/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/students" element={<Students/>}/>
+        <Route path="/students/:id" element={<StudentDetails/>}/>
       </Routes>
       
     </BrowserRouter>
